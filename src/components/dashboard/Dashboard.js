@@ -8,7 +8,7 @@ import { Route, Switch, Link, Redirect } from "react-router-dom";
 import { Discover } from "./Discover";
 import Profile from "./Profile";
 import "./dashboard.css";
-import HomeComponent from "./HomeComponent-new";
+import HomeComponent from "./homeComponent-new/HomeComponent-new";
 import Landing from "./CompanyDetail";
 import JobOpenings from "./JobOpenings";
 import JobDescription from "./JobDescription";

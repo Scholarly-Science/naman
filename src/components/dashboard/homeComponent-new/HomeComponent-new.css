@@ -5,18 +5,222 @@
 .home_nav_bar{
   /* backdrop-filter: blur(8px); */
   background-color: #ffffff;
-  height: 60px;
+  height: 89px;
   position: fixed;
   top:0;
   width: 100%;
   z-index: 1;
   box-shadow: 0 2px 6px 0 rgba(0,0,0,0.2), 0 1px 1px 0 rgba(0,0,0,0.19);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  max-width: 76%;
+  max-height: 92%;
+  margin: auto;
+  margin-top: 25px;
+  overflow-y: scroll;
+  border: 0px !important;
+  border-radius: 5px;
+}
+
+.modal__container {
+  max-width: 100%;
+  min-height: 100%;
+  /* margin-top: 20px; */
+  display: flex;
+}
+
+.modal__sec1 {
+  background: #eff2f6 url('../../images/homeasset/modal-bottom.png') no-repeat bottom;
+  background-size: contain;
+  width: 33%;
+  border: 0px;
+}
+
+.modal__sec1 > img {
+  padding: 2.5rem;
+  padding-bottom: 0px;
+  width: 150px;
+}
+
+.modal__content {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 60%;
+}
+
+.modal__welcome {
+  font-size: 1.5rem;
+  line-height: 1.875rem;
+  font-weight: 600;
+}
+
+.modal__signIn {
+  margin-top: 0.7rem;
+  color: #788699;    
+  font-size: .875rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+}
+
+.modal__sec2 {
+  background-color: #fff;
+  width: 77%;
+  position: relative;
+}
+
+.modal__sec2 > .MuiSvgIcon-root {
+  position: fixed;
+  top: 35px;
+  right: 12.5%;
+  font-size: 40px !important;
+  color: #999 !important;
+  font-weight: 100 !important;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+  border-radius: 50px;
+  padding: 5px;
+}
+
+.modal__sec2 > .MuiSvgIcon-root:hover {
+  color: #000 !important;
+  background-color: lightgray;
+}
+
+.modal__content2 {
+  padding: 1.5rem 5rem;
+}
+
+.modal__seperator {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1.5625rem 0 .9375rem 0;
+  color: #141820;
+}
+
+.modal__seperator > p {
+  font-size: 18px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 0.8em;
+}
+
+.modal__seperator > hr {
+  width: 100%;
+  height: 1px;
+  background-color: #dfe3eb;
+  border: none;
+}
+
+.modal__form > label {
+  font-size: .875rem;
+  color: #201e27;
+  margin: 0 0 .5rem;
+  font-weight: 600;
+  display: block;
+  line-height: 1.6;
+  max-width: 42em
+}
+
+.modal__form > input {
+  background-color: rgba(97, 170, 238, 0.384);
+  border-radius: .3125rem;
+  margin-bottom: .625rem;
+  width: 96%;
+  font-size: .875rem;
+  padding: 10px;
+  outline: none;
+  caret-color: #2dc5a1;
+  border: 1px solid rgba(97, 170, 238, 0.384);
+}
+
+.modal__form > div {
+  margin: auto;
+  margin-top: 1.5rem;
+  text-align: center;
+  color: #fff;
+  background: #1a73e8;
+  padding: .625rem .75rem;
+  cursor: pointer;
+  border-radius: 5px;
+  max-width: 130px;
+}
+
+.modal__contentbottom {
+  padding: 0px 5rem;
+  padding-bottom: 0px;
+}
+
+.modal__contentbottom > hr {
+  background: #ebedf1;
+  border: 0;
+  display: block;
+  margin: 1.25rem auto;
+  height: 1px;
+  width: 100%;
+}
+
+.modal__contentbottom > p {
+  color: #788699;
+  margin-top: 1.25rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.modal__contentbottom > p > span {
+  color: #1a73e8;
+  font-weight: 600;
+}
+
+.google__login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  color: #1a73e8;
+  border: 1px solid #1a73e8;
+  font-size: .875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+  padding: .625rem .75rem;
+  cursor: pointer; 
+  border-radius: 3px;
+  margin-top: 10%;
+}
+
+.google__login > p {
+  margin: 0px;
+  padding: 0px;
+}
+.google__login > img {
+  height: 15px;
+  margin-right: 10px;
+}
+
+.home__login {
+  min-width: 10rem;
+  min-height: 3rem;
+  border-radius: 4px;
+  width: 10%;
+  outline: none;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1.375rem;
+  font-weight: 700;
+  border: 1px solid #d6dae0;
+  color: #201e27;
 }
 
 .home_firstsection{
   margin-top: 4.5vh;
   width: 100%;
-  background: #ffffff url('../images/homeasset/first-sec-bg.svg') no-repeat center top;
+  background: #ffffff url('../../images/homeasset/first-sec-bg.svg') no-repeat center top;
   background-size: 100% 100%;
   background-size: contain;
   height: 95.5vh;
@@ -165,7 +369,7 @@
 
 @media (max-width: 414px) {
   .home_firstsection{
-    background: #ffffff url('../images/homeasset/mobile-bg-414.svg') no-repeat center top;
+    background: #ffffff url('../../images/homeasset/mobile-bg-414.svg') no-repeat center top;
     background-size: contain !important;
     margin-top: 7vh;
     height: 93vh;
@@ -272,7 +476,7 @@
   and (-webkit-device-pixel-ratio: 3.5) 
   and (orientation: portrait) {
     .home_firstsection{
-      background: #ffffff url('../images/homeasset/mobile-bg-pixel-Xl.svg') no-repeat center top;
+      background: #ffffff url('../../images/homeasset/mobile-bg-pixel-Xl.svg') no-repeat center top;
       margin-top: 5vh;
       height: 95vh;
     }
@@ -325,7 +529,7 @@
     and (device-height : 812px) 
     and (-webkit-device-pixel-ratio : 3) { 
       .home_firstsection{
-        background: #ffffff url('../images/homeasset/mobile-bg-pixel-Xl.svg') no-repeat center top;
+        background: #ffffff url('../../images/homeasset/mobile-bg-pixel-Xl.svg') no-repeat center top;
         margin-top: 5vh;
         height: 97vh;
       }

@@ -1,21 +1,74 @@
 import React, { Component } from "react";
 import "./HomeComponent-new.css";
+import Dialog from '@material-ui/core/Dialog';
+import CloseRoundedIcon from '@material-ui/icons/CloseRounded';
 
-import forstudents from '../images/homeasset/3.svg'
-import foremployers from '../images/homeasset/2.svg'
-import forcolleges from '../images/homeasset/4.svg'
-import companiescover from '../images/homeasset/companies.svg'
-import trees from '../images/homeasset/Group 120.svg'
-import work from '../images/homeasset/work.svg'
-import ecosystem from '../images/homeasset/ecosystem.svg'
-import sec2Img from '../images/homeasset/Group 122.svg'
-import box from '../images/homeasset/box.svg'
+import forstudents from '../../images/homeasset/3.svg'
+import foremployers from '../../images/homeasset/2.svg'
+import forcolleges from '../../images/homeasset/4.svg'
+import companiescover from '../../images/homeasset/companies.svg'
+import trees from '../../images/homeasset/Group 120.svg'
+import work from '../../images/homeasset/work.svg'
+import ecosystem from '../../images/homeasset/ecosystem.svg'
+import sec2Img from '../../images/homeasset/Group 122.svg'
+import box from '../../images/homeasset/box.svg'
+import modalLogo from '../../images/homeasset/modal-logo.svg'
+import googleLogo from '../../images/homeasset/Google-logo.png'
 
 class HomeComponent extends Component {
+  state = {
+    open: false,
+  }
+
   render() { 
     return (
       <div className='home'>
-      <div className="home_nav_bar"></div>
+        <div className='home__modal'>
+          <Dialog
+            fullScreen
+            open={this.state.open}
+            className='modal'
+            onClose={() => this.setState({ open: false })}
+          >
+            <div className='modal__container'>
+              <div className='modal__sec1'>
+                <img src={modalLogo} alt='logo' />
+                <div className='modal__content'>
+                  <p className='modal__welcome'>Welcome Back</p>
+                  <p className='modal__signIn'>Sign in to continue.</p>
+                </div>
+              </div>
+              <div className='modal__sec2'>
+                <CloseRoundedIcon onClick={() => this.setState({ open: false})} />
+                <div className='modal__content2'>
+                  <div className='google__login'>
+                    <img src={googleLogo} alt='gl' />
+                    <p>Continue with Google</p>
+                  </div>
+                  <div className='modal__seperator'>
+                    <hr/><p>or</p><hr/>
+                  </div>
+                  <form className='modal__form'>
+                    <label>Your Email</label>
+                    <input type='text' />
+                    <label>Password</label>
+                    <input type='password' />
+                    <div>Log In</div>  
+                  </form>
+                </div>
+
+                <div className='modal__contentbottom'>
+                  <hr/>
+                  <p>Don’t have an account? <span>Sign up</span></p>
+                  <p>Forgot your password? <span>Recover password</span></p>
+                </div>
+              </div>
+            </div>
+          </Dialog>
+        </div>
+        <div className="home_nav_bar">
+          <button className='home__login' onClick={() => this.setState({ open: true })}>Log In</button>
+        </div>
         <section className="home_firstsection">
           <div className="sec1_content">
             <h1>Bridging companies and campuses to empower students</h1>
