@@ -14,6 +14,7 @@ import sec2Img from '../../images/homeasset/Group 122.svg'
 import box from '../../images/homeasset/box.svg'
 import modalLogo from '../../images/homeasset/modal-logo.svg'
 import googleLogo from '../../images/homeasset/Google-logo.png'
+import ModalForm from "./ModalForm";
 
 class HomeComponent extends Component {
   state = {
@@ -48,13 +49,7 @@ class HomeComponent extends Component {
                   <div className='modal__seperator'>
                     <hr/><p>or</p><hr/>
                   </div>
-                  <form className='modal__form'>
-                    <label>Your Email</label>
-                    <input type='text' />
-                    <label>Password</label>
-                    <input type='password' />
-                    <div>Log In</div>  
-                  </form>
+                  <ModalForm />
                 </div>
 
                 <div className='modal__contentbottom'>

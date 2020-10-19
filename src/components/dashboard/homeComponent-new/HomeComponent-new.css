@@ -17,7 +17,7 @@
 }
 
 .modal {
-  max-width: 76%;
+  max-width: 65%;
   max-height: 92%;
   margin: auto;
   margin-top: 25px;
@@ -29,7 +29,6 @@
 .modal__container {
   max-width: 100%;
   min-height: 100%;
-  /* margin-top: 20px; */
   display: flex;
 }
 
@@ -77,7 +76,7 @@
 .modal__sec2 > .MuiSvgIcon-root {
   position: fixed;
   top: 35px;
-  right: 12.5%;
+  right: 18%;
   font-size: 40px !important;
   color: #999 !important;
   font-weight: 100 !important;
@@ -116,40 +115,6 @@
   height: 1px;
   background-color: #dfe3eb;
   border: none;
-}
-
-.modal__form > label {
-  font-size: .875rem;
-  color: #201e27;
-  margin: 0 0 .5rem;
-  font-weight: 600;
-  display: block;
-  line-height: 1.6;
-  max-width: 42em
-}
-
-.modal__form > input {
-  background-color: rgba(97, 170, 238, 0.384);
-  border-radius: .3125rem;
-  margin-bottom: .625rem;
-  width: 96%;
-  font-size: .875rem;
-  padding: 10px;
-  outline: none;
-  caret-color: #2dc5a1;
-  border: 1px solid rgba(97, 170, 238, 0.384);
-}
-
-.modal__form > div {
-  margin: auto;
-  margin-top: 1.5rem;
-  text-align: center;
-  color: #fff;
-  background: #1a73e8;
-  padding: .625rem .75rem;
-  cursor: pointer;
-  border-radius: 5px;
-  max-width: 130px;
 }
 
 .modal__contentbottom {
@@ -368,6 +333,57 @@
 }
 
 @media (max-width: 414px) {
+  /* .modal {
+    margin: 0px;
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .modal__container {
+    display: block;
+    background: #fff url('../../images/homeasset/modal-mobile.png') no-repeat top;
+    background-size: contain;
+  }
+
+  .modal__sec1, .modal__sec2 {
+    width: 100%;
+  }
+
+  .modal__sec1 {
+    background: none;
+    margin-bottom: -15px;
+  }
+
+  .modal__sec1 > img {
+    display: block;
+    margin: auto;
+    width: 125px;
+  }
+
+  .modal__content {
+    text-align: center;
+    padding-top: 0px;
+    min-height: 95px;
+  }
+
+  .modal__welcome {
+    font-size: 1.25rem;
+    margin-bottom: 5px;
+  }
+
+  .modal__signIn {
+    margin-bottom: 0px;
+  }
+
+  .modal__sec2 > .MuiSvgIcon-root {
+    right: 10px;
+    top: 10px;
+  }
+
+  .modal__content2, .modal__contentbottom {
+    padding: 0px 2rem;
+  } */
+
   .home_firstsection{
     background: #ffffff url('../../images/homeasset/mobile-bg-414.svg') no-repeat center top;
     background-size: contain !important;
