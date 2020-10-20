@@ -28,7 +28,6 @@ function ModalForm() {
                       errors,
                       touched
                     }) => {
-                      console.log(errors);
                       return (
                         <form onSubmit={handleSubmit} className='modal__form'>
                           <label>Your Email</label>
