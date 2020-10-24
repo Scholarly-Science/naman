@@ -23,6 +23,7 @@ import { SignUpStudent } from "../signup/SignUpStudent";
 import Assessment__Body from "./Assessment/Assessment__Body/Assessment__Body";
 import Assignments from "./Assignments/Assignments";
 import Research from "./Research/Research";
+import Projects from "./Projects/Projects";
 
 export const Dashboard = () => {
   const [isToggle, setIsToggle] = useState(false);
@@ -72,6 +73,7 @@ export const Dashboard = () => {
             <Route exact path="/dashboard/openings" component={JobOpenings} />
             <Route exact path="/dashboard/assignments" component={Assignments} />
             <Route exact path="/dashboard/research" component={Research} />
+            <Route exact path="/dashboard/projects" component={Projects} />
             <Route
               exact
               path="/dashboard/description"

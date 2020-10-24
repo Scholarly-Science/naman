@@ -191,6 +191,22 @@ const Navbar = ({ history, click }) => {
             <span>Research</span>
           </div>
         </Link>
+        <Link to="/dashboard/projects" style={{ textDecoration: "none" }}>
+          <div
+            className="description-item"
+            onClick={click}
+            style={currentTab(history, "/dashboard/projects")}
+          >
+            <img
+              src={discover}
+              alt="referrals"
+              height="25"
+              width="25"
+              className="icons-nav"
+            />
+            <span>Projects</span>
+          </div>
+        </Link>
         <Link to="/dashboard/profile" style={{ textDecoration: "none" }}>
           <div
             className="username-item"

@@ -1,6 +1,7 @@
 .assignments {
     background-color: #f8f8f8;
     padding: 20px;
+    min-height: 65vh;
     margin-top: 198px;
     font-family: Inter;
 }
@@ -11,6 +12,44 @@
     margin-left: 77px;
     margin-top: -80px;
     display: grid;
+    place-items: center;
     grid-row-gap: 20px;
     grid-template-columns: repeat(4, 1fr);
+}
+
+@media(max-width: 1300px) {
+    .assignments {
+        min-height: 80vh;
+    }
+
+    .assignments__cards {
+        grid-template-columns: repeat(3, 1fr);
+        margin-left: auto;
+    }
+}
+
+@media(max-width: 768px) {
+    .assignments__cards {
+        width: 100%;
+    }
+
+    .assignments {
+        min-height: 75vh;
+    }
+}
+
+@media(max-width: 600px) {
+    .assignments {
+        margin-bottom: -10px;
+    }
+
+    .assignments__cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 414px) {
+    .assignments__cards {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
