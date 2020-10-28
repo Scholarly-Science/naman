@@ -23,13 +23,29 @@ function NewProfile() {
     const [checked, setChecked] = useState(false);
     const [checkedTo, setCheckedTo] = useState(false);
     const [years, setYears] = useState([]);
-
+    const [selectedRoles, setSelectedRoles] = useState([]);
+    const [selectedExp, setSelectedExp] = useState([]);
+    const [selectedSkills, setSelectedSkills] = useState([]);
+    const [selectedLoc, setSelectedLoc] = useState([]);
+    
     useEffect(() => {
         setYears(yearsfunc());
     }, [])
 
     const openFile = () => {
         document.getElementById('file').click();
+    } 
+
+    const setRoles = ( role ) => {
+        if(selectedRoles?.indexOf(role) !== -1) {
+            const data = selectedRoles?.filter((d) => d !== role);
+            setSelectedRoles(data);
+        } else {
+            if(selectedRoles.length < 4) {
+                selectedRoles.push(role);
+            }
+        }
+        console.log(selectedRoles);
     }
 
     return (
@@ -163,13 +179,17 @@ function NewProfile() {
                                                     <p>Choose up to 4</p>
                                                 </div>
                                                 <div className='dialog__roles__role'>
-                                                    {roles?.map(role => <p>{role}</p>)}
+                                                    {roles?.map(role => <p onClick={() => setRoles(role)}>{role}</p>)}
                                                 </div>
                                             </div>
                                         </div>
                                     </Dialog>
                                 </h2>
-                                <p>What are your roles</p>
+                                {selectedRoles?.length > 0 ? (
+                                    <div>
+                                        {selectedRoles?.map(role => <p>{role}</p>)}
+                                    </div>
+                                ) : (<p>What are your roles</p>)}
                             </div>
                             <div className='newProfile__exp'>
                                 <h2>
@@ -194,7 +214,11 @@ function NewProfile() {
                                         </div>
                                     </Dialog>
                                 </h2>
-                                <p>What areas of experience do you have?</p>
+                                {selectedExp?.length > 0 ? (
+                                    <div>
+                                        {selectedExp?.map(role => <p>{role}</p>)}
+                                    </div>
+                                ) : (<p>What areas of experience do you have?</p>)}
                             </div>
                             <div className='newProfile__skill'>
                                 <h2>
@@ -219,7 +243,11 @@ function NewProfile() {
                                         </div>
                                     </Dialog>
                                 </h2>
-                                <p>Rank your skills</p>
+                                {selectedSkills?.length > 0 ? (
+                                    <div>
+                                        {selectedSkills?.map(role => <p>{role}</p>)}
+                                    </div>
+                                ) : (<p>Rank your skills</p>)}
                             </div>
                             <div className='newProfile__loc'>
                                 <h2>
@@ -244,7 +272,11 @@ function NewProfile() {
                                         </div>
                                     </Dialog>
                                 </h2>
-                                <p>Where do you want to work?</p>
+                                {selectedLoc?.length > 0 ? (
+                                    <div>
+                                        {selectedLoc?.map(role => <p>{role}</p>)}
+                                    </div>
+                                ) : (<p>Where do you want to work?</p>)}
                             </div>
                         </div>
                     </div>

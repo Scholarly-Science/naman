@@ -301,6 +301,7 @@ input, button, textarea, select, option {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-top: 5px;
 }
 
 /* .newProfile__role:hover + .newProfile__exp{
@@ -322,6 +323,27 @@ input, button, textarea, select, option {
     line-height: 1.25rem;
     font-weight: 400;
 }
+
+.newProfile__role > div, .newProfile__exp > div, .newProfile__skill > div, .newProfile__loc > div {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.newProfile__role > div > p, .newProfile__exp > div > p, .newProfile__skill > div > p, .newProfile__loc > div > p {
+    margin: 0;
+    padding: .25rem .5rem;
+    background-color: #eff2f6;
+    margin-right: .5rem;
+    margin-top: .5rem;
+    border-radius: 5px;
+    font-size: .75rem;
+    line-height: 1rem;
+    font-weight: 400;
+}
+
+/* .newProfile__role > div > p:last-child, .newProfile__exp > div > p:last-child,
+.newProfile__skill > div > p:last-child, .newProfile__loc > div > p:last-child {
+} */
 
 .newProfile__loc > p {
     margin-bottom: 0px;
