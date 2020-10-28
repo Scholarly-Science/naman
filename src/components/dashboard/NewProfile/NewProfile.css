@@ -13,6 +13,11 @@
 }
 
 /* Standard Card class */
+
+input, button, textarea, select, option {
+    font-family: "Inter", sans-serif !important;
+}
+
 .newProfile__card {
     box-shadow: 0px 2px 8px rgba(0,0,0,0.08);
     border-radius: 4px;
@@ -42,6 +47,130 @@
     cursor: pointer;
     outline: none;
     font-family: "Inter", sans-serif;
+}
+
+.newProfile__card > input[type='file'] {
+    color: transparent;
+    display: none;
+}
+
+.margin {
+    margin-right: 5%;
+}
+
+.select__month {
+    outline: none;
+    background: rgba(255,255,255,0.4);
+    border: 1px solid #d6e0e1;
+    border-radius: .3125rem;
+    margin-bottom: .625rem;
+    position: relative;
+    width: 47.5%;
+    font-size: .875rem;
+    padding: 10px;
+    color: #788699;
+    transition: all 0.2s ease-in;
+}
+
+.select__month:disabled {
+    display: none;
+}
+
+/* MODAL Common Content */
+.newProfile__experience__modal {
+    width: 37.5rem;
+    margin: 24px auto;
+}
+
+.newProfile__preference__modal {
+    width: 40rem;
+    margin: 24px auto;
+}
+
+.newProfile__preference__modal::-webkit-scrollbar {
+    display: block !important;
+}
+
+.newProfile__preference__modal__container {
+    padding: 1.5rem 1.5rem;
+}
+
+.newProfile__experience__modal > div.MuiDialog-container.MuiDialog-scrollPaper > div,
+.newProfile__preference__modal > div.MuiDialog-container.MuiDialog-scrollPaper > div {
+    border-radius: 8px;
+}
+
+.experience__modal__header {
+    display: flex;
+    justify-content: space-between;
+    position: sticky !important;
+    align-items: center;
+    height: 3.75rem;
+    max-height: 60px;
+    padding: 9px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    background: #eff2f6;
+    margin-bottom: 2rem;
+}
+
+.preference__modal__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3rem;
+    padding: 0px 1.5625rem;
+    background: white;
+    position: sticky;
+    box-shadow: white 5px 10px 10px 0px;
+}
+
+.preference__modal__header > .MuiSvgIcon-root {
+    font-size: 2.5rem !important;
+    line-height: 1.625rem !important;
+    width: 0.6875em !important;
+    font-weight: 800 !important;
+    cursor: pointer;
+    color: #033443 !important;
+}
+
+.preference__modal__header > button {
+    border: none;
+    outline: none;
+    min-height: 2.5rem;
+    min-width: 6.25rem;
+    color: #fff;
+    background: #201e27;
+    padding: .375rem .75rem;
+    border-radius: .3125rem;
+    font-weight: 600;
+    font-size: .875rem;
+    height: 2.5rem;
+    cursor: pointer;
+}
+
+.experience__modal__header > h3{
+    font-size: .875rem;
+    line-height: 1.25rem;
+    font-weight: 600;
+    color: #201e27;   
+    margin: 0;
+}
+
+.experience__modal__header > .MuiSvgIcon-root {
+    font-size: 2rem !important;
+    margin: 0;
+    color: #aaa !important;
+    cursor: pointer;
+    padding: 5px;
+    margin-right: -5px;
+    border-radius: 50px;
+    transition: all 0.2s ease-in;
+}
+
+.experience__modal__header > .MuiSvgIcon-root:hover {
+    background-color: #ddd;
+    transform: scale(0.9);
 }
 
 /* End */
@@ -166,8 +295,23 @@
     margin-bottom: 1rem;
 }
 
-.newProfile__role > h2, .newProfile__exp > h2, .newProfile__skill > h2, .newProfile__loc > h2 {
+.newProfile__role > h2, .newProfile__exp > h2, .newProfile__skill > h2, .newProfile__loc > h2,
+.newProfile__right__elsewhere > h1 {
     margin-bottom: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* .newProfile__role:hover + .newProfile__exp{
+    display: none;
+} */
+
+.newProfile__role > h2 > .MuiSvgIcon-root, .newProfile__exp > h2 > .MuiSvgIcon-root,
+.newProfile__skill > h2 > .MuiSvgIcon-root, .newProfile__loc > h2 > .MuiSvgIcon-root,
+.newProfile__right__elsewhere > h1 > .MuiSvgIcon-root {
+    color: #aaa !important;
+    cursor: pointer;
 }
 
 .newProfile__role > p, .newProfile__exp > p, .newProfile__skill > p, .newProfile__loc > p {
@@ -200,4 +344,156 @@
     height: 1.875rem;
     width: 1.875rem;
     margin-right: 10px;
+}
+
+/* Modal Content */
+.experience__modal__form {
+    padding: 1.5rem 1.5rem;
+    padding-top: 0px;
+}
+
+.experience__modal__form > form{
+    width: 100%;
+}
+
+.experience__modal__form > form > label {
+    font-weight: 600;
+    color: #201e27;
+    display: block;
+    font-size: .75rem;
+    line-height: 1.6;
+    margin-bottom: 5px;
+}
+
+.experience__modal__form > form > label > span{
+    opacity: 0.6;
+}
+
+.experience__modal__form > form > input {
+    font-size: .875rem;
+    margin: 0;
+    margin-bottom: 13px;
+    background: transparent;
+    color: #030303;
+    caret-color: #2dc5a1;
+    display: block;
+    height: 2.5rem;
+    line-height: 1.375rem;
+    outline: none;
+    padding: 0 .875rem .1em;
+    width: 94.5%;
+    border-radius: .3125rem;
+    border: 1px solid #ddd;
+    transition: all 0.2s ease-in;
+}
+
+.experience__modal__form > form > input:disabled {
+    opacity: 0;
+    display: none;
+}
+
+.experience__modal__form__checkbox {
+    display: flex;
+    align-items: center;
+    margin-top: -5px;
+}
+
+.experience__modal__form__checkbox > p {
+    font-size: .75rem;
+    font-weight: 600;
+}
+
+.newProfile__preference__modal__container > h2 {
+    font-size: 1.25rem;
+    line-height: 1.625rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.experience__modal__form__textarea > textarea {
+    margin-top: 2px !important;
+    height: 253px !important;
+    width: 94.5% !important;
+    font-size: .9rem !important;
+    resize: none !important;
+    caret-color: #2dc5a1;
+    border: 1px solid #ddd;
+    outline: none !important;
+    border-radius: 5px !important;
+    padding: 0 .875rem .1em;
+    padding-top: 10px;
+    transition: border 0.2s ease-in;
+}
+
+.experience__modal__form__textarea > textarea:focus {
+    border: 1px solid #25b2aa !important;
+}
+
+.experience__button {
+    float: right;
+    margin-left: .75rem;
+    margin-top: 1.5rem;
+}
+
+.experience__button > button {
+    margin-left: .9375rem;
+    outline: none;
+    min-width: 9.0625rem;
+    padding: .625rem .75rem;
+    border-radius: .3125rem;
+    font-weight: 600;
+    font-size: .875rem;
+    height: 2.5rem;
+    cursor: pointer;
+}
+
+.experience__button > button:first-child {
+    border: 1px solid #d6dae0;
+    color: #201e27;
+}
+
+.experience__button > button:last-child {
+    color: #fff;
+    background: #1a73e8;
+    border: none;
+}
+
+.dialog__roles {
+    width: 90%;
+    margin: auto;
+}
+
+.dialog__roles__info {
+    text-align: left;
+    margin-left: 10px;
+}
+
+.dialog__roles__info > h5{
+    font-size: .875rem;
+    color: #201e27;
+    margin: 0;
+    font-weight: 600;
+}
+
+.dialog__roles__info > p{
+    margin-top: 5px;
+    font-size: .875rem;
+    font-weight: 600;
+    color: #788699;
+}
+
+.dialog__roles__role > p {
+    color: #788699;
+    display: inline-flex;
+    height: fit-content;
+    width: fit-content;
+    margin: .35rem .25rem;
+    padding: .7rem .875rem;
+    font-size: .875rem;
+    text-align: center;
+    font-weight: 400;
+    line-height: 1.25;
+    border: 1px solid #d6dae0;
+    border-radius: 1.5rem;
+    cursor: pointer;
 }
