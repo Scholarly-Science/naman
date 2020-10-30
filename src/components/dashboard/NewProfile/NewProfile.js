@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import './NewProfile.css';
 import Avatar from '@material-ui/core/Avatar';
 import Dialog from '@material-ui/core/Dialog';
-import Checkbox from '@material-ui/core/Checkbox';
 
 import DesktopWindowsIcon from '@material-ui/icons/DesktopWindows';
 import github from '../../images/newProfile/github.svg';
@@ -11,23 +10,30 @@ import linkedin from '../../images/newProfile/linkedin.svg';
 import personal from '../../images/newProfile/personal-website.svg';
 import CloseIcon from '@material-ui/icons/Close';
 import CreateOutlinedIcon from '@material-ui/icons/CreateOutlined';
-import { roles, experience, skills, location, months, yearsfunc } from './NewProfileData';
+import { roles, experience, skills, location, yearsfunc } from './NewProfileData';
+import ExperienceModal from './ExperienceModal';
+// Images
+import expImg from '../../images/newProfile/exp-img.svg';
+import PreferenceModal from './PreferenceModal/PreferenceModal';
 
 function NewProfile() {
     const [open, setOpen] = useState(false);
     const [openRoles, setOpenRoles] = useState(false);
+    // For opening the modal of Preferences
     const [openExp, setOpenExp] = useState(false);
     const [openSkills, setOpenSkills] = useState(false);
     const [openloc, setOpenloc] = useState(false);
     const [openElsewhewe, setOpenElsewhewe] = useState(false);
-    const [checked, setChecked] = useState(false);
-    const [checkedTo, setCheckedTo] = useState(false);
+    // Years
     const [years, setYears] = useState([]);
+    // Selected preferences are stored here
     const [selectedRoles, setSelectedRoles] = useState([]);
     const [selectedExp, setSelectedExp] = useState([]);
     const [selectedSkills, setSelectedSkills] = useState([]);
     const [selectedLoc, setSelectedLoc] = useState([]);
-    
+    // Added Experiences are stored here
+    const [addExperience, setAddExperience] = useState([]);
+
     useEffect(() => {
         setYears(yearsfunc());
     }, [])
@@ -41,11 +47,47 @@ function NewProfile() {
             const data = selectedRoles?.filter((d) => d !== role);
             setSelectedRoles(data);
         } else {
-            if(selectedRoles.length < 4) {
+            if(selectedRoles.length < 7) {
                 selectedRoles.push(role);
+                setSelectedRoles([...selectedRoles]);
             }
         }
-        console.log(selectedRoles);
+    }
+
+    const setExperience = ( exp ) => {
+        if(selectedExp?.indexOf(exp) !== -1) {
+            const data = selectedExp?.filter((e) => e !== exp);
+            setSelectedExp(data);
+        } else {
+            if(selectedExp.length < 7) {
+                selectedExp.push(exp);
+                setSelectedExp([...selectedExp]);
+            }
+        }
+    }
+
+    const setSkill = ( skill ) => {
+        if(selectedSkills?.indexOf(skill) !== -1) {
+            const data = selectedSkills?.filter((sk) => sk !== skill);
+            setSelectedSkills(data);
+        } else {
+            if(selectedSkills.length < 7) {
+                selectedSkills.push(skill);
+                setSelectedSkills([...selectedSkills]);
+            }
+        }
+    }
+
+    const setLocation = ( loc ) => {
+        if(selectedLoc?.indexOf(loc) !== -1) {
+            const data = selectedLoc?.filter((l) => l !== loc);
+            setSelectedLoc(data);
+        } else {
+            if(selectedLoc.length < 7) {
+                selectedLoc.push(loc);
+                setSelectedLoc([...selectedLoc]);
+            }
+        }
     }
 
     return (
@@ -56,83 +98,62 @@ function NewProfile() {
                         <Avatar alt='Akshay' src='jhcdbjbdcjf'></Avatar>
                         <div className='newProfile__userBio__info'>
                             <h4>Akshay Kumar</h4>
+                            <h5>University, year</h5>
                             <p>Other, 2016</p>
                             <p>BA/BS in Biochemistry</p>
+                            <button className='btn'>Edit Profile</button>
                         </div>
                     </div>
 
-                    <div className='newProfile__experience'>
-                        <h1>Experiences</h1>
-                        <div className='newProfile__card'>
-                            <p>Stand out to recruiters by adding your experience</p>
-                            <button onClick={() => setOpen(true)}>+ Add Experience</button>
+                    <div className='newProfile__experience' 
+                        style={{
+                            background: `${addExperience?.length > 0 && '#fff'}`, 
+                            border: `${addExperience?.length > 0 && '1.5px solid #d9d9d9'}`,
+                            marginBottom: `${addExperience?.length <= 0 ? '9px' : '15px'}`
+                        }}
+                    >
+                        <h1>EXPERIENCE</h1>
+                        {addExperience?.length > 0 ? (
+                            <div className='experiences__card'>
+                                {addExperience.map(exp => (
+                                    <div>
+                                        <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQSHDJ35rSeDJiqegz6fAWizKIx3X3xlK8Wgg&usqp=CAU' alt='google' />
+                                        <div>
+                                            <h2>{exp.title} - {exp.companyName}</h2>
+                                            <h3>{`${exp.fromMonth} ${exp.fromYear}`} - {`${exp.toMonth} ${exp.toYear}`}</h3>
+                                            <h4>{exp.location}</h4>
+                                            <p>{exp.textarea || 'Description'}</p>
+                                        </div>
+                                        <CreateOutlinedIcon />
+                                    </div>                                    
+                                ))}
+                                <button onClick={() => setOpen(true)}>+ Add Experience</button>
+                            </div>
+                                
+                        ) : (
+                            <div className='newProfile__experience__bg'>
+                                <img src={expImg} alt='experience-img' />
+                                <h3>Add your experience</h3>
+                                <p>Stand out to recruiters by adding your past and upcoming experiences</p>
+                                <button onClick={() => setOpen(true)} className='btn'>Add Experience</button>
+                            </div>                          
+                        )}
+                        <ExperienceModal 
+                            open={open} 
+                            setOpen={setOpen} 
+                            years={years}
+                            addExperience={addExperience}
+                        />
+                    </div>
+
+                    <div className='newProfile__resume'>
+                        <h1>RESUME</h1>
+                        <div>
+                            <h3>Add your resume</h3>
+                            <p>Your resume is essential for recruiters to learn more about you! Upload one as soon as possible to boost your chances of being discovered</p>
+                            <button onClick={openFile} className='btn'>Add Resume</button>
+                            <input type="file" id="file" name="file"/>
                         </div>
-                        <Dialog className='newProfile__experience__modal' fullScreen open={open} onClose={() => setOpen(false)}>
-                            <div className='experience__modal__header'>
-                                <h3>Add Experience</h3>
-                                <CloseIcon onClick={() => setOpen(false)} />
-                            </div>
-                            <div className='experience__modal__form'>
-                                <form>
-                                    <label>Company / Organization Name</label>
-                                    <input type='text' placeholder='Example: Google or Code2040' />
-                                    <label>Website</label>
-                                    <input type='text' placeholder='https://www.scholarly-science.com' />
-                                    <label>Title</label>
-                                    <input type='text' placeholder='Example: Software Engineer' />
-                                    <label>Location {checked && <span>(optional)</span>} </label>
-                                    <input type='text' placeholder='Add a location' disabled={checked}/>
-                                    <div className='experience__modal__form__checkbox'>
-                                        <Checkbox 
-                                            color='primary'
-                                            checked={checked}
-                                            onChange={() => setChecked(!checked)}
-                                        />
-                                        <p>Worked Remotely</p>
-                                    </div>
-                                    <label>From</label>
-                                    <div>
-                                        <select className='select__month margin'>
-                                            <option value="">Select...</option>
-                                            {months?.map(month => <option value={month}>{month}</option>)}
-                                        </select>
-                                        <select className='select__month'>
-                                            <option value="">Select...</option>
-                                            {years?.map(year => <option value={year} >{year}</option>)}
-                                        </select>
-                                    </div>
-                                    {!checkedTo && <label>To</label>}
-                                    <div>
-                                        <select className='select__month margin' disabled={checkedTo}>
-                                            <option value="">Select...</option>
-                                            {months?.map(month => <option value={month}>{month}</option>)}
-                                        </select>
-                                        <select className='select__month' disabled={checkedTo}>
-                                            <option value="">Select...</option>
-                                            {years?.map(year => <option value={year} >{year}</option>)}
-                                        </select>
-                                    </div>
-                                    <div className='experience__modal__form__checkbox'>
-                                        <Checkbox 
-                                            color='primary'
-                                            checked={checkedTo}
-                                            onChange={() => setCheckedTo(!checkedTo)}
-                                        />
-                                        <p>I currently work here</p>
-                                    </div>
-                                    <label>Description <span>(optional)</span></label>
-                                    <div className='experience__modal__form__textarea'>
-                                        <textarea 
-                                            placeholder='one or two sentences explaining your role.' 
-                                        />
-                                    </div>
-                                    <div className='experience__button'>
-                                        <button>Cancel</button>
-                                        <button>Save</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </Dialog>
                     </div>
 
                     <div className='newProfile__education'>
@@ -150,41 +171,21 @@ function NewProfile() {
 
                 <section className='newProfile__right'>
                     <div>
-                        <div className='newProfile__resume'>
-                            <h1>Resume</h1>
-                            <div className='newProfile__card'>
-                                <p>
-                                    You’re more likely to get reached out to if you have a resume! Only recruiters will be able to see your resume. 
-                                </p>
-                                <button onClick={openFile}>+ Add Resume</button>
-                                <input type="file" id="file" name="file"/>
-                            </div>
-                        </div>
-
                         <div className='newProfile__preference'>
                             <div className='newProfile__role'>
                                 <h2>
                                     Preferred roles
                                     <CreateOutlinedIcon onClick={() => setOpenRoles(true)} />
-                                    <Dialog className='newProfile__preference__modal' fullScreen open={openRoles} onClose={() => setOpenRoles(false)}>
-                                        <div className='newProfile__preference__modal__container'>
-                                            <div className='preference__modal__header'>
-                                                <CloseIcon onClick={() => setOpenRoles(false)} />
-                                                <button>Save</button>
-                                            </div>
-                                            <h2>Edit My Interests</h2>
-                                            <div className='dialog__roles'>
-                                                <div className='dialog__roles__info'>
-                                                    <h5>Which of these roles are you most interested in?</h5>
-                                                    <p>Choose up to 4</p>
-                                                </div>
-                                                <div className='dialog__roles__role'>
-                                                    {roles?.map(role => <p onClick={() => setRoles(role)}>{role}</p>)}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </Dialog>
                                 </h2>
+                                    <PreferenceModal 
+                                        pref={roles}
+                                        open={openRoles}
+                                        close={setOpenRoles}
+                                        set={setRoles}
+                                        heading='Edit My Interests'
+                                        info='Which of these roles are you most interested in?'
+                                        choose='Choose up to 7'
+                                    />
                                 {selectedRoles?.length > 0 ? (
                                     <div>
                                         {selectedRoles?.map(role => <p>{role}</p>)}
@@ -195,25 +196,16 @@ function NewProfile() {
                                 <h2>
                                     Experience
                                     <CreateOutlinedIcon onClick={() => setOpenExp(true)} />
-                                    <Dialog className='newProfile__preference__modal' fullScreen open={openExp} onClose={() => setOpenExp(false)}>
-                                    <   div className='newProfile__preference__modal__container'>
-                                            <div className='preference__modal__header'>
-                                                <CloseIcon onClick={() => setOpenExp(false)} />
-                                                <button>Save</button>
-                                            </div>
-                                            <h2>Edit My Background</h2>
-                                            <div className='dialog__roles'>
-                                                <div className='dialog__roles__info'>
-                                                    <h5>What area have you had the most experience with?</h5>
-                                                    <p>Choose up to 4</p>
-                                                </div>
-                                                <div className='dialog__roles__role'>
-                                                    {experience?.map(role => <p>{role}</p>)}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </Dialog>
                                 </h2>
+                                    <PreferenceModal 
+                                        pref={experience}
+                                        open={openExp}
+                                        close={setOpenExp}
+                                        set={setExperience}
+                                        heading='Edit My Background'
+                                        info='What area have you had the most experience with?'
+                                        choose='Choose up to 7'
+                                    />
                                 {selectedExp?.length > 0 ? (
                                     <div>
                                         {selectedExp?.map(role => <p>{role}</p>)}
@@ -224,28 +216,19 @@ function NewProfile() {
                                 <h2>
                                     Skills
                                     <CreateOutlinedIcon onClick={() => setOpenSkills(true)} />
-                                    <Dialog className='newProfile__preference__modal' fullScreen open={openSkills} onClose={() => setOpenSkills(false)}>
-                                    <   div className='newProfile__preference__modal__container'>
-                                            <div className='preference__modal__header'>
-                                                <CloseIcon onClick={() => setOpenSkills(false)} />
-                                                <button>Save</button>
-                                            </div>
-                                            <h2>Edit My Background</h2>
-                                            <div className='dialog__roles'>
-                                                <div className='dialog__roles__info'>
-                                                    <h5>Rank your skills from the list below.</h5>
-                                                    <p>Choose up to 5</p>
-                                                </div>
-                                                <div className='dialog__roles__role'>
-                                                    {skills?.map(role => <p>{role}</p>)}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </Dialog>
                                 </h2>
+                                    <PreferenceModal 
+                                        pref={skills}
+                                        open={openSkills}
+                                        close={setOpenSkills}
+                                        set={setSkill}
+                                        heading='Edit My Background'
+                                        info='Rank your skills from the list below.'
+                                        choose='Choose up to 7'
+                                    />
                                 {selectedSkills?.length > 0 ? (
                                     <div>
-                                        {selectedSkills?.map(role => <p>{role}</p>)}
+                                        {selectedSkills?.map(skill => <p>{skill}</p>)}
                                     </div>
                                 ) : (<p>Rank your skills</p>)}
                             </div>
@@ -253,28 +236,19 @@ function NewProfile() {
                                 <h2>
                                     Preferred locations
                                     <CreateOutlinedIcon onClick={() => setOpenloc(true)} />
-                                    <Dialog className='newProfile__preference__modal' fullScreen open={openloc} onClose={() => setOpenloc(false)}>
-                                    <   div className='newProfile__preference__modal__container'>
-                                            <div className='preference__modal__header'>
-                                                <CloseIcon onClick={() => setOpenloc(false)} />
-                                                <button>Save</button>
-                                            </div>
-                                            <h2>Edit My Interests</h2>
-                                            <div className='dialog__roles'>
-                                                <div className='dialog__roles__info'>
-                                                    <h5>Which location would you like to work in?</h5>
-                                                    <p>Choose all that apply</p>
-                                                </div>
-                                                <div className='dialog__roles__role'>
-                                                    {location?.map(role => <p>{role}</p>)}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </Dialog>
                                 </h2>
+                                    <PreferenceModal 
+                                        pref={location}
+                                        open={openloc}
+                                        close={setOpenloc}
+                                        set={setLocation}
+                                        heading='Edit My Interests'
+                                        info='Which location would you like to work in?'
+                                        choose='Choose up to 7'
+                                    />
                                 {selectedLoc?.length > 0 ? (
                                     <div>
-                                        {selectedLoc?.map(role => <p>{role}</p>)}
+                                        {selectedLoc?.map(loc => <p>{loc}</p>)}
                                     </div>
                                 ) : (<p>Where do you want to work?</p>)}
                             </div>

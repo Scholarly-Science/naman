@@ -12,47 +12,90 @@
     margin-left: 110px;
 }
 
-/* Standard Card class */
-
 input, button, textarea, select, option {
     font-family: "Inter", sans-serif !important;
 }
 
-.newProfile__card {
-    box-shadow: 0px 2px 8px rgba(0,0,0,0.08);
-    border-radius: 4px;
-    padding: 1rem;
-}
-
-.newProfile__card > p {
-    margin: 0;
-    padding-bottom: 1rem;
-    color: #788699;
-    font-size: .75rem;
-    line-height: 1rem;
-    font-weight: 700;
-}
-
-.newProfile__card > button {
-    margin-top: 0;
-    border-radius: 100px;
-    padding: .5rem .75rem;
-    border: 1px solid;
-    color: #1a73e8;
-    text-decoration: none;
-    font-size: .875rem;
-    line-height: 1.25rem;
-    font-weight: 600;
-    background: transparent;
-    cursor: pointer;
+.btn {
     outline: none;
-    font-family: "Inter", sans-serif;
+    border: none;
+    padding: 10px 15px;
+    font-weight: 600;
+    background-color: #01a3a4;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-.newProfile__card > input[type='file'] {
-    color: transparent;
+#file {
     display: none;
 }
+
+/* EXPERIENCE CARD */
+
+.experiences__card > div {
+    position: relative;
+    display: flex;
+    margin-bottom: 22px;
+}
+
+.experiences__card > div:last-of-type {
+    margin-bottom: 0px;
+}
+
+.experiences__card > div > img{
+    height: 60px;
+    width: 60px;
+    object-fit: contain;
+    border-radius: 3px;
+    margin-right: 1.25rem;
+}
+
+.experiences__card > div > div > h2 {
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 150%;
+    margin: 0;
+    color: #355761;
+}
+
+.experiences__card > div > div > h3, .experiences__card > div > div > h4, .experiences__card > div > div > p {
+    font-size: .875rem;
+    line-height: 150%;
+    margin: 0;
+    font-weight: normal;
+    color: #597780;
+}
+
+.experiences__card > div > div > h4 {
+    opacity: 0.7;
+}
+
+.experiences__card > div > div > p {
+    margin-top: .5rem;
+}
+
+.experiences__card > div > .MuiSvgIcon-root {
+    opacity: 1;
+    position: absolute;
+    right: 0;
+    color: #aaa !important;
+    cursor: pointer;
+    font-size: 25px !important;
+}
+
+.experiences__card > button {
+    position: absolute;
+    top: 26px;
+    right: 20px;
+    color: #62d5bc;
+    font-size: .85rem;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+/* Standard Card class */
 
 .margin {
     margin-right: 5%;
@@ -82,21 +125,7 @@ input, button, textarea, select, option {
     margin: 24px auto;
 }
 
-.newProfile__preference__modal {
-    width: 40rem;
-    margin: 24px auto;
-}
-
-.newProfile__preference__modal::-webkit-scrollbar {
-    display: block !important;
-}
-
-.newProfile__preference__modal__container {
-    padding: 1.5rem 1.5rem;
-}
-
-.newProfile__experience__modal > div.MuiDialog-container.MuiDialog-scrollPaper > div,
-.newProfile__preference__modal > div.MuiDialog-container.MuiDialog-scrollPaper > div {
+.newProfile__experience__modal > div.MuiDialog-container.MuiDialog-scrollPaper > .MuiDialog-paperFullScreen {
     border-radius: 8px;
 }
 
@@ -149,6 +178,7 @@ input, button, textarea, select, option {
     cursor: pointer;
 }
 
+
 .experience__modal__header > h3{
     font-size: .875rem;
     line-height: 1.25rem;
@@ -181,7 +211,6 @@ input, button, textarea, select, option {
 }
 
 .newProfile__left {
-    background-color: #fff;
     min-width: 658px;
 }
 
@@ -199,9 +228,13 @@ input, button, textarea, select, option {
     margin-top: 24px;
 }
 
-.newProfile__userBio, .newProfile__experience, .newProfile__education {
-    padding: 2rem;
-    border-bottom: 1px solid #eff2f6;
+.newProfile__userBio, .newProfile__experience, .newProfile__resume, .newProfile__education {
+    background-color: #fff;
+    padding: 1.5rem 2rem;
+    border: 1.5px solid #d9d9d9;
+    border-radius: 9px;
+    margin-bottom: 15px;
+    width: 589px;
 }
 
 .newProfile__userBio {
@@ -228,6 +261,12 @@ input, button, textarea, select, option {
     line-height: 150%;
 }
 
+.newProfile__userBio__info > h5 {
+    margin: 0;
+    font-weight: 500;
+    color: #3e5963;
+}
+
 .newProfile__userBio__info > p {
     color: #788699;
     font-size: .875rem;
@@ -237,12 +276,55 @@ input, button, textarea, select, option {
     margin-bottom: 0px;
 }
 
-.newProfile__experience > h1, .newProfile__education > h1 {
+/* COMMON OF exp, edu and resume HEADING*/
+.newProfile__experience > h1, .newProfile__education > h1, .newProfile__resume > h1 {
     margin-top: 0px;
     margin-bottom: 1rem;
-    font-size: 1rem;
+    font-size: 0.95rem;
     line-height: 1.375rem;
-    font-weight: 700;
+    font-weight: 500;
+}
+
+.newProfile__experience {
+    position: relative;
+    background: url('../../images/newProfile/exp-bg.svg') no-repeat top;
+    background-size: cover;
+    min-height: max-content;
+    border: none;
+}
+
+.newProfile__experience__bg, .newProfile__resume > div {
+    text-align: center;
+}
+
+.newProfile__experience__bg > img {
+    position: absolute;
+    width: 32%;
+    left: 34%;
+    top: 10%;
+}
+
+.newProfile__experience__bg > h3, .newProfile__resume > div > h3 {
+    margin: 0;
+    margin-top: 9.5rem;
+    font-weight: 500;
+}
+
+.newProfile__experience__bg > p, .newProfile__resume > div > p {
+    margin: .5rem 0;
+    font-size: .875rem;
+    margin-bottom: 1rem;
+    opacity: 0.95;
+}
+
+.newProfile__resume {
+    background: #fff url('../../images/newProfile/resume.svg') no-repeat center 20px;
+    background-size: 25%;
+    height: 230px;
+}
+
+.newProfile__resume > div > h3 {
+    margin-top: 6.2rem;
 }
 
 .newProfile__education > div {
@@ -280,13 +362,12 @@ input, button, textarea, select, option {
     font-weight: 500;
 }
 
-.newProfile__resume, .newProfile__preference {
+.newProfile__preference {
     padding: 1.5rem;
     border-bottom: 1px solid #eff2f6;
 }
 
-.newProfile__resume > h1 , .newProfile__role > h2, 
-.newProfile__exp > h2, .newProfile__skill > h2, .newProfile__loc > h2,
+.newProfile__role > h2, .newProfile__exp > h2, .newProfile__skill > h2, .newProfile__loc > h2,
 .newProfile__right__elsewhere > h1 {
     margin: 0;
     font-size: .875rem;
@@ -303,10 +384,6 @@ input, button, textarea, select, option {
     justify-content: space-between;
     margin-top: 5px;
 }
-
-/* .newProfile__role:hover + .newProfile__exp{
-    display: none;
-} */
 
 .newProfile__role > h2 > .MuiSvgIcon-root, .newProfile__exp > h2 > .MuiSvgIcon-root,
 .newProfile__skill > h2 > .MuiSvgIcon-root, .newProfile__loc > h2 > .MuiSvgIcon-root,
@@ -432,25 +509,6 @@ input, button, textarea, select, option {
     text-align: center;
 }
 
-.experience__modal__form__textarea > textarea {
-    margin-top: 2px !important;
-    height: 253px !important;
-    width: 94.5% !important;
-    font-size: .9rem !important;
-    resize: none !important;
-    caret-color: #2dc5a1;
-    border: 1px solid #ddd;
-    outline: none !important;
-    border-radius: 5px !important;
-    padding: 0 .875rem .1em;
-    padding-top: 10px;
-    transition: border 0.2s ease-in;
-}
-
-.experience__modal__form__textarea > textarea:focus {
-    border: 1px solid #25b2aa !important;
-}
-
 .experience__button {
     float: right;
     margin-left: .75rem;
@@ -478,44 +536,4 @@ input, button, textarea, select, option {
     color: #fff;
     background: #1a73e8;
     border: none;
-}
-
-.dialog__roles {
-    width: 90%;
-    margin: auto;
-}
-
-.dialog__roles__info {
-    text-align: left;
-    margin-left: 10px;
-}
-
-.dialog__roles__info > h5{
-    font-size: .875rem;
-    color: #201e27;
-    margin: 0;
-    font-weight: 600;
-}
-
-.dialog__roles__info > p{
-    margin-top: 5px;
-    font-size: .875rem;
-    font-weight: 600;
-    color: #788699;
-}
-
-.dialog__roles__role > p {
-    color: #788699;
-    display: inline-flex;
-    height: fit-content;
-    width: fit-content;
-    margin: .35rem .25rem;
-    padding: .7rem .875rem;
-    font-size: .875rem;
-    text-align: center;
-    font-weight: 400;
-    line-height: 1.25;
-    border: 1px solid #d6dae0;
-    border-radius: 1.5rem;
-    cursor: pointer;
 }
