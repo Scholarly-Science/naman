@@ -29,13 +29,13 @@ function ProfileModal({ openProfile ,setOpenProfile }) {
                             <input type='text' placeholder='Smith' />
                         </div>
                     </div>
-                    <label>School<span>(optional)</span></label>
-                    <input type='text' placeholder='Enter Your School' />
-                    <label>Personalize your URL <span>(optional)</span></label>
-                    <input type='text' placeholder='john-smith' />
+                    <label>College/University</label>
+                    <input type='text' placeholder='Enter Your College/University Name' />
+                    {/* <label>Personalize your URL <span>(optional)</span></label>
+                    <input type='text' placeholder='john-smith' /> */}
                     <label>Email Address</label>
                     <input type='email' placeholder='johnsmith@gmail.com'/>
-                    <label>Phone Number <span>(optional)</span></label>
+                    <label>Mobile Number</label>
                     <PhoneInput
                         country='in'
                         value={phone}

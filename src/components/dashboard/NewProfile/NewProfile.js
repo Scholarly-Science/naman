@@ -11,7 +11,6 @@ import CreateOutlinedIcon from '@material-ui/icons/CreateOutlined';
 import { roles, experience, skills, location, yearsfunc } from './NewProfileData';
 import ExperienceModal from './ExperienceModal/ExperienceModal';
 // Images
-import expImg from '../../images/newProfile/exp-img.svg';
 import PreferenceModal from './PreferenceModal/PreferenceModal';
 import ElsewhereModal from './ElseWhereModal/ElsewhereModal';
 import ProfileModal from './ProfileModal/ProfileModal';
@@ -111,9 +110,7 @@ function NewProfile() {
 
                     <div className='newProfile__experience' 
                         style={{
-                            background: `${addExperience?.length > 0 && '#fff'}`, 
-                            border: `${addExperience?.length > 0 && '1.5px solid #d9d9d9'}`,
-                            // marginBottom: `${addExperience?.length <= 0 ? '9px' : '15px'}`
+                            background: `${addExperience?.length > 0 && '#fff'}`
                         }}
                     >
                         <h1>EXPERIENCE</h1>
@@ -136,7 +133,6 @@ function NewProfile() {
                                 
                         ) : (
                             <div className='newProfile__experience__bg'>
-                                {/* <img src={expImg} alt='experience-img' /> */}
                                 <h3>Add your experience</h3>
                                 <p>Stand out to recruiters by adding your past and upcoming experiences</p>
                                 <button onClick={() => setOpen(true)} className='btn'>Add Experience</button>

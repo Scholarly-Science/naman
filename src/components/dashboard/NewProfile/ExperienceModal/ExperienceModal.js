@@ -7,6 +7,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Dialog from '@material-ui/core/Dialog';
 import CloseIcon from '@material-ui/icons/Close';
 import { months } from '../NewProfileData';
+import InputSearch from '../InputSearch';
 
 function ExperienceModal({ open, setOpen, years, addExperience }) {
     const [checked, setChecked] = useState(false);
@@ -59,7 +60,8 @@ function ExperienceModal({ open, setOpen, years, addExperience }) {
                                     }) => (
                                         <form onSubmit={handleSubmit}>
                                             <label>Company / Organization Name</label>
-                                            <input type='text' name='companyName' onChange={handleChange} value={values.companyName} placeholder='Example: Google or Code2040' />
+                                            {/* <input type='text' name='companyName' onChange={handleChange} value={values.companyName} placeholder='Example: Google or Code2040' /> */}
+                                            <InputSearch />
                                             <label>Website</label>
                                             <input type='text' name='website' onChange={handleChange} value={values.website} placeholder='https://www.scholarly-science.com' />
                                             <label>Title</label>

@@ -31,6 +31,27 @@
     width: 98%;
     border-radius: .3125rem !important;
     border: 1px solid #ddd !important;
+    transition: all 0.2s ease-in;
+}
+
+.profile__modal__form__fullname > div > input:focus {
+    border: 1px solid #000 !important;
+}
+
+.profile__modal__container {
+    margin-bottom: 13px;
+    height: 2.5rem;
+    border-radius: .3125rem !important;
+    transition: all 0.2s ease-in;
+    font-family: "Inter", sans-serif !important;
+}
+
+/* .profile__modal__phoneInput:focus + .profile__modal__container {
+    border: 1px solid #000 !important;
+} */
+
+.profile__modal__phoneInput {
+    width: 100% !important;
 }
 
 .profile__modal__form > form > textarea {
@@ -47,11 +68,6 @@
     transition: border 0.2s ease-in;
 }
 
-.profile__modal__container {
-    margin-bottom: 13px;
-    height: 2.5rem;
-}
-
-.profile__modal__phoneInput {
-    width: 100% !important;
+.profile__modal__form > form > textarea:focus {
+    border: 1px solid #000;
 }

@@ -113,6 +113,12 @@
     display: none;
 }
 
+.experience__modal__form > form > input:focus,
+.elsewhere__modal__form > form > input:focus,
+.profile__modal__form > form > input:focus {
+    border: 1px solid #000;
+}
+
 .experience__modal__form__checkbox {
     display: flex;
     align-items: center;
