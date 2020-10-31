@@ -3,16 +3,47 @@
     margin: 24px auto;
 }
 
-.preference__modal::-webkit-scrollbar {
-    display: block !important;
+.preference__modal > div.MuiDialog-container.MuiDialog-scrollPaper > div {
+    border-radius: 8px;
 }
 
 .preference__modal__container {
     padding: 1.5rem 1.5rem;
 }
 
-.preference__modal > div.MuiDialog-container.MuiDialog-scrollPaper > div {
-    border-radius: 8px;
+.preference__modal__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3rem;
+    padding: 0px 1.5625rem;
+    background: white;
+    position: sticky;
+    box-shadow: white 5px 10px 10px 0px;
+}
+
+.preference__modal__header > .MuiSvgIcon-root {
+    font-size: 2.5rem !important;
+    line-height: 1.625rem !important;
+    width: 0.6875em !important;
+    font-weight: 800 !important;
+    cursor: pointer;
+    color: #033443 !important;
+}
+
+.preference__modal__header > button {
+    border: none;
+    outline: none;
+    min-height: 2.5rem;
+    min-width: 6.25rem;
+    color: #fff;
+    background: #201e27;
+    padding: .375rem .75rem;
+    border-radius: .3125rem;
+    font-weight: 600;
+    font-size: .875rem;
+    height: 2.5rem;
+    cursor: pointer;
 }
 
 .preference__modal__roles {

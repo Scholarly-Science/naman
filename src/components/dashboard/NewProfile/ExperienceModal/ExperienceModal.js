@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import './NewProfile.css';
-import TextEditor from './TextEditor/TextEditor';
+import './ExperienceModal.css';
+import TextEditor from '../TextEditor/TextEditor';
 import { Formik } from 'formik';
 
 import Checkbox from '@material-ui/core/Checkbox';
 import Dialog from '@material-ui/core/Dialog';
 import CloseIcon from '@material-ui/icons/Close';
-import { months } from './NewProfileData';
+import { months } from '../NewProfileData';
 
 function ExperienceModal({ open, setOpen, years, addExperience }) {
     const [checked, setChecked] = useState(false);
@@ -29,7 +29,7 @@ function ExperienceModal({ open, setOpen, years, addExperience }) {
 
     return (
         <div>
-            <Dialog className='newProfile__experience__modal' fullScreen open={open} onClose={() => setOpen(false)}>
+            <Dialog className='experience__modal' fullScreen open={open} onClose={() => setOpen(false)}>
                             <div className='experience__modal__header'>
                                 <h3>Add Experience</h3>
                                 <CloseIcon onClick={() => setOpen(false)} />
@@ -76,7 +76,7 @@ function ExperienceModal({ open, setOpen, years, addExperience }) {
                                             </div>
                                             <label>From</label>
                                             <div>
-                                                <select className='select__month margin' name='fromMonth' onChange={handleChange}>
+                                                <select className='select__month mr' name='fromMonth' onChange={handleChange}>
                                                     <option value="">Select...</option>
                                                     {months?.map(month => <option value={month}>{month}</option>)}
                                                 </select>
@@ -87,7 +87,7 @@ function ExperienceModal({ open, setOpen, years, addExperience }) {
                                             </div>
                                             {!checkedTo && <label>To</label>}
                                             <div>
-                                                <select className='select__month margin' name='toMonth' onChange={handleChange} disabled={checkedTo}>
+                                                <select className='select__month mr' name='toMonth' onChange={handleChange} disabled={checkedTo}>
                                                     <option value="">Select...</option>
                                                     {months?.map(month => <option value={month}>{month}</option>)}
                                                 </select>
@@ -109,8 +109,8 @@ function ExperienceModal({ open, setOpen, years, addExperience }) {
                                                 <TextEditor name='textarea' value={values.textarea}  onChange={handleChange} />
                                             </div>
                                             <div className='experience__button'>
-                                                <button onClick={cancel}>Cancel</button>
-                                                <button disabled={loading}>
+                                                <button type='button' onClick={cancel}>Cancel</button>
+                                                <button disabled={loading} type='submit'>
                                                     {loading ? 'Saving...' : 'Save'}
                                                 </button>
                                             </div>

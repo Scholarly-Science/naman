@@ -1,28 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import './NewProfile.css';
 import Avatar from '@material-ui/core/Avatar';
-import Dialog from '@material-ui/core/Dialog';
 
 import DesktopWindowsIcon from '@material-ui/icons/DesktopWindows';
 import github from '../../images/newProfile/github.svg';
 import heart from '../../images/newProfile/heart.svg';
 import linkedin from '../../images/newProfile/linkedin.svg';
 import personal from '../../images/newProfile/personal-website.svg';
-import CloseIcon from '@material-ui/icons/Close';
 import CreateOutlinedIcon from '@material-ui/icons/CreateOutlined';
 import { roles, experience, skills, location, yearsfunc } from './NewProfileData';
-import ExperienceModal from './ExperienceModal';
+import ExperienceModal from './ExperienceModal/ExperienceModal';
 // Images
 import expImg from '../../images/newProfile/exp-img.svg';
 import PreferenceModal from './PreferenceModal/PreferenceModal';
+import ElsewhereModal from './ElseWhereModal/ElsewhereModal';
+import ProfileModal from './ProfileModal/ProfileModal';
 
 function NewProfile() {
+    // For Profile and exp modal opening
+    const [openProfile, setOpenProfile] = useState(false);
     const [open, setOpen] = useState(false);
-    const [openRoles, setOpenRoles] = useState(false);
     // For opening the modal of Preferences
+    const [openRoles, setOpenRoles] = useState(false);
     const [openExp, setOpenExp] = useState(false);
     const [openSkills, setOpenSkills] = useState(false);
     const [openloc, setOpenloc] = useState(false);
+    // For opening the modal of Elsewhere
     const [openElsewhewe, setOpenElsewhewe] = useState(false);
     // Years
     const [years, setYears] = useState([]);
@@ -101,7 +104,8 @@ function NewProfile() {
                             <h5>University, year</h5>
                             <p>Other, 2016</p>
                             <p>BA/BS in Biochemistry</p>
-                            <button className='btn'>Edit Profile</button>
+                            <button className='btn' onClick={() => setOpenProfile(true)} style={{marginTop: '7px'}}>Edit Profile</button>
+                            <ProfileModal openProfile={openProfile} setOpenProfile={setOpenProfile} />
                         </div>
                     </div>
 
@@ -109,7 +113,7 @@ function NewProfile() {
                         style={{
                             background: `${addExperience?.length > 0 && '#fff'}`, 
                             border: `${addExperience?.length > 0 && '1.5px solid #d9d9d9'}`,
-                            marginBottom: `${addExperience?.length <= 0 ? '9px' : '15px'}`
+                            // marginBottom: `${addExperience?.length <= 0 ? '9px' : '15px'}`
                         }}
                     >
                         <h1>EXPERIENCE</h1>
@@ -132,7 +136,7 @@ function NewProfile() {
                                 
                         ) : (
                             <div className='newProfile__experience__bg'>
-                                <img src={expImg} alt='experience-img' />
+                                {/* <img src={expImg} alt='experience-img' /> */}
                                 <h3>Add your experience</h3>
                                 <p>Stand out to recruiters by adding your past and upcoming experiences</p>
                                 <button onClick={() => setOpen(true)} className='btn'>Add Experience</button>
@@ -260,30 +264,7 @@ function NewProfile() {
                             Elsewhere
                             <CreateOutlinedIcon onClick={() => setOpenElsewhewe(true)} />
                         </h1>
-                        <Dialog className='newProfile__experience__modal' fullScreen open={openElsewhewe} onClose={() => setOpenElsewhewe(false)}>
-                            <div className='experience__modal__header'>
-                                <h3>Edit Links</h3>
-                                <CloseIcon onClick={() => setOpenElsewhewe(false)} />
-                            </div>
-                            <div className='experience__modal__form'>
-                                <form>
-                                    <label>Your Github URL <span>(optional)</span></label>
-                                    <input type='text' placeholder='https://www.scholarly-science.git' />
-                                    <label>Your Linkedin URL <span>(optional)</span></label>
-                                    <input type='text' placeholder='https://www.scholarly-science.com' />
-                                    <label>Your StackOverflow URL <span>(optional)</span></label>
-                                    <input type='text' placeholder='https://www.scholarly-science.com' />
-                                    <label>Your Personal Website <span>(optional)</span></label>
-                                    <input type='text' placeholder='https://www.scholarly-science.com'/>
-                                    <label>Your Passion Projects<span>(optional)</span></label>
-                                    <input type='text' placeholder='Worked on something you loved add a link'/>
-                                    <div className='experience__button'>
-                                        <button>Cancel</button>
-                                        <button>Save</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </Dialog>
+                        <ElsewhereModal openElsewhewe={openElsewhewe} setOpenElsewhewe={setOpenElsewhewe} />
                         <p>
                             <img src={personal} alt='personal' />
                             Add Website
