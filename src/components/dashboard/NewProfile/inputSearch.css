@@ -1,0 +1,39 @@
+.inputSearch__autocomplete > .MuiFormControl-root {
+    margin: 0px !important;
+    margin-bottom: 13px !important;
+}
+
+.inputSearch__autocomplete .MuiInputBase-root {
+    margin: 0;
+    padding: 0 !important;
+}
+
+.inputSearch__autocomplete .MuiFormControl-marginNormal {
+    margin: 0 !important;
+    margin-bottom: 13px !important;
+}
+
+.inputSearch__autocomplete .MuiInputBase-input {
+    color: #000 !important;
+    border: 1px solid #ccc !important;
+    font-family: "Inter", sans-serif !important;
+    font-size: .875rem;
+    background: transparent;
+    caret-color: #2dc5a1;
+    height: 2.5rem;
+    line-height: 1.375rem;
+    outline: none !important;
+    padding: 0 .875rem .1em !important;
+    padding-left: 9px !important;
+    border-radius: .3125rem;
+    border: 1px solid #ccc !important;
+    transition: all 0.2s ease-in;
+}
+
+.inputSearch__autocomplete .MuiInputBase-input:focus {
+    border: 1px solid #000 !important;
+}
+
+.inputSearch__autocomplete .PrivateNotchedOutline-root-1 {
+    border: none !important;
+}

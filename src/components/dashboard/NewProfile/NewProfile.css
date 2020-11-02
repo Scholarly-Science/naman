@@ -107,6 +107,7 @@ input, button, textarea, select, option {
 
 .newProfile__right {
     margin-left: 20px;
+    max-width: 309px;
 }
 
 .newProfile__right > div, .newProfile__right__elsewhere {
@@ -322,4 +323,14 @@ input, button, textarea, select, option {
     height: 1.875rem;
     width: 1.875rem;
     margin-right: 10px;
+}
+
+.newProfile__right__elsewhere > p > a {
+    transition: all 0.2s ease-in;
+    max-width: 90%;
+    overflow: hidden;
+}
+
+.newProfile__right__elsewhere > p > a:hover {
+    color: #25b2aa;
 }

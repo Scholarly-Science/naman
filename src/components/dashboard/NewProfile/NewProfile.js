@@ -2,18 +2,20 @@ import React, { useEffect, useState } from 'react';
 import './NewProfile.css';
 import Avatar from '@material-ui/core/Avatar';
 
+import { roles, experience, skills, location, yearsfunc } from './NewProfileData';
+import ExperienceModal from './ExperienceModal/ExperienceModal';
+// Modals
+import PreferenceModal from './PreferenceModal/PreferenceModal';
+import ElsewhereModal from './ElseWhereModal/ElsewhereModal';
+import ProfileModal from './ProfileModal/ProfileModal';
+// Images $& Icons
 import DesktopWindowsIcon from '@material-ui/icons/DesktopWindows';
+import CreateOutlinedIcon from '@material-ui/icons/CreateOutlined';
 import github from '../../images/newProfile/github.svg';
 import heart from '../../images/newProfile/heart.svg';
 import linkedin from '../../images/newProfile/linkedin.svg';
 import personal from '../../images/newProfile/personal-website.svg';
-import CreateOutlinedIcon from '@material-ui/icons/CreateOutlined';
-import { roles, experience, skills, location, yearsfunc } from './NewProfileData';
-import ExperienceModal from './ExperienceModal/ExperienceModal';
-// Images
-import PreferenceModal from './PreferenceModal/PreferenceModal';
-import ElsewhereModal from './ElseWhereModal/ElsewhereModal';
-import ProfileModal from './ProfileModal/ProfileModal';
+import lineimg from '../../images/newProfile/line.png';
 
 function NewProfile() {
     // For Profile and exp modal opening
@@ -33,8 +35,16 @@ function NewProfile() {
     const [selectedExp, setSelectedExp] = useState([]);
     const [selectedSkills, setSelectedSkills] = useState([]);
     const [selectedLoc, setSelectedLoc] = useState([]);
-    // Added Experiences are stored here
+    // Added Experiences & Resume are stored here
     const [addExperience, setAddExperience] = useState([]);
+    const [addResume, setAddResume] = useState();
+    // Added Elsewhere projects are added here
+    const [personalWebsite, setPersonalWebsite] = useState('');
+    const [linkedinURL, setLinkedinURL] = useState('');
+    const [passionProject, setPassionProject] = useState('');
+    const [githubURL, setGithubURL] = useState('');
+    const [line, setLine] = useState('');
+    const [stackOverflow, setstackOverflow] = useState('');
 
     useEffect(() => {
         setYears(yearsfunc());
@@ -43,6 +53,14 @@ function NewProfile() {
     const openFile = () => {
         document.getElementById('file').click();
     } 
+    
+    const fileUploaded = () => {
+        let select = document.getElementById('file'),
+        img = select.files[0];
+        setAddResume(img);
+    }
+
+    console.log(addResume);
 
     const setRoles = ( role ) => {
         if(selectedRoles?.indexOf(role) !== -1) {
@@ -146,14 +164,20 @@ function NewProfile() {
                         />
                     </div>
 
-                    <div className='newProfile__resume'>
+                    <div className='newProfile__resume' style={{background: `${addResume && 'none'}`}}>
                         <h1>RESUME</h1>
-                        <div>
-                            <h3>Add your resume</h3>
-                            <p>Your resume is essential for recruiters to learn more about you! Upload one as soon as possible to boost your chances of being discovered</p>
-                            <button onClick={openFile} className='btn'>Add Resume</button>
-                            <input type="file" id="file" name="file"/>
-                        </div>
+                        {addResume ? (
+                            <div>
+                                hi
+                            </div>
+                        ) : (
+                            <div>
+                                <h3>Add your resume</h3>
+                                <p>Your resume is essential for recruiters to learn more about you! Upload one as soon as possible to boost your chances of being discovered</p>
+                                <button onClick={openFile} className='btn'>Add Resume</button>
+                                <input type="file" id="file" onChange={fileUploaded} name="file"/>
+                            </div>
+                        )}
                     </div>
 
                     <div className='newProfile__education'>
@@ -260,23 +284,57 @@ function NewProfile() {
                             Elsewhere
                             <CreateOutlinedIcon onClick={() => setOpenElsewhewe(true)} />
                         </h1>
-                        <ElsewhereModal openElsewhewe={openElsewhewe} setOpenElsewhewe={setOpenElsewhewe} />
+                        <ElsewhereModal 
+                            openElsewhewe={openElsewhewe} 
+                            setOpenElsewhewe={setOpenElsewhewe} 
+                            // Setting the data
+                            setPersonalWebsite={setPersonalWebsite}
+                            setLinkedinURL={setLinkedinURL}
+                            setPassionProject={setPassionProject}
+                            setGithubURL={setGithubURL}
+                            setLine={setLine}
+                            setstackOverflow={setstackOverflow}
+                            // Data to modal if available
+                            personalWebsite={personalWebsite}
+                            linkedinURL={linkedinURL}
+                            passionProject={passionProject}
+                            githubURL={githubURL}
+                            line={line}
+                            stackOverflow={stackOverflow}
+                        />
                         <p>
                             <img src={personal} alt='personal' />
-                            Add Website
+                            {!personalWebsite && 'Add Website'}
+                            {personalWebsite &&<a href={personalWebsite} target='_blank'>{personalWebsite}</a>}
                         </p>
                         <p>
                             <img src={linkedin} alt='linkedin' />
-                            Add Linkedin
+                            {!linkedinURL && 'Add Linkedin'}
+                            {linkedinURL &&<a href={linkedinURL} target='_blank'>{linkedinURL}</a>}
                         </p>
                         <p>
                             <img src={heart} alt='heart' />
-                            Add Passion Project
+                            {!passionProject && 'Add Passion Project'}
+                            {passionProject && <a href={passionProject} target='_blank'>{passionProject}</a>}
                         </p>
                         <p>
                             <img src={github} alt='github' />
-                            Add Github
+                            {!githubURL && 'Add Github'}
+                            {githubURL && <a href={githubURL} target='_blank'>{githubURL}</a>}
                         </p>
+                        { line &&
+                            <p>
+                                <img src={lineimg} alt='line' />
+                                <a href={line} target='_blank'>{line}</a>
+                            </p>
+                        }
+                        {
+                            stackOverflow && 
+                            <p>
+                                <img src={lineimg} alt='line' />
+                                <a href={stackOverflow} target='_blank'>{stackOverflow}</a>
+                            </p>
+                        }
                     </div>
                 </section>
             </div>
