@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './NewProfile.css';
 import Avatar from '@material-ui/core/Avatar';
 
-import { roles, experience, skills, location, yearsfunc } from './NewProfileData';
+import { roles, experience, skills, location, yearsfunc, months } from './NewProfileData';
 import ExperienceModal from './ExperienceModal/ExperienceModal';
 // Modals
 import PreferenceModal from './PreferenceModal/PreferenceModal';
@@ -11,6 +11,8 @@ import ProfileModal from './ProfileModal/ProfileModal';
 // Images $& Icons
 import DesktopWindowsIcon from '@material-ui/icons/DesktopWindows';
 import CreateOutlinedIcon from '@material-ui/icons/CreateOutlined';
+import DeleteIcon from '@material-ui/icons/Delete';
+import resumeSelected from '../../images/newProfile/resume-selected.svg';
 import github from '../../images/newProfile/github.svg';
 import heart from '../../images/newProfile/heart.svg';
 import linkedin from '../../images/newProfile/linkedin.svg';
@@ -164,11 +166,20 @@ function NewProfile() {
                         />
                     </div>
 
-                    <div className='newProfile__resume' style={{background: `${addResume && 'none'}`}}>
+                    <div className='newProfile__resume' style={{background: `${addResume && '#fff'}`}}>
                         <h1>RESUME</h1>
                         {addResume ? (
-                            <div>
-                                hi
+                            <div className='newProfile__resume__selected'>
+                                <img src={resumeSelected} alt='resume' />
+                                <div>
+                                    <h3>{addResume?.name}</h3>
+                                    <p>{`Last updated: ${months[new Date().getMonth()]} ${new Date().getDate()}, ${new Date().getFullYear()}`}</p>
+                                </div>
+                                <div className='newProfile__resume__selected__icons'>
+                                    <DeleteIcon />
+                                    <CreateOutlinedIcon id="file-selected" onClick={openFile} />
+                                    <input type="file" id="file" onChange={fileUploaded} name="file"/>
+                                </div>
                             </div>
                         ) : (
                             <div>
@@ -199,7 +210,7 @@ function NewProfile() {
                             <div className='newProfile__role'>
                                 <h2>
                                     Preferred roles
-                                    <CreateOutlinedIcon onClick={() => setOpenRoles(true)} />
+                                    <CreateOutlinedIcon className='hide' onClick={() => setOpenRoles(true)} />
                                 </h2>
                                     <PreferenceModal 
                                         pref={roles}
@@ -219,7 +230,7 @@ function NewProfile() {
                             <div className='newProfile__exp'>
                                 <h2>
                                     Experience
-                                    <CreateOutlinedIcon onClick={() => setOpenExp(true)} />
+                                    <CreateOutlinedIcon className='hide' onClick={() => setOpenExp(true)} />
                                 </h2>
                                     <PreferenceModal 
                                         pref={experience}
@@ -239,7 +250,7 @@ function NewProfile() {
                             <div className='newProfile__skill'>
                                 <h2>
                                     Skills
-                                    <CreateOutlinedIcon onClick={() => setOpenSkills(true)} />
+                                    <CreateOutlinedIcon className='hide' onClick={() => setOpenSkills(true)} />
                                 </h2>
                                     <PreferenceModal 
                                         pref={skills}
@@ -259,7 +270,7 @@ function NewProfile() {
                             <div className='newProfile__loc'>
                                 <h2>
                                     Preferred locations
-                                    <CreateOutlinedIcon onClick={() => setOpenloc(true)} />
+                                    <CreateOutlinedIcon className='hide' onClick={() => setOpenloc(true)} />
                                 </h2>
                                     <PreferenceModal 
                                         pref={location}
@@ -282,7 +293,7 @@ function NewProfile() {
                     <div className='newProfile__right__elsewhere'>
                         <h1>
                             Elsewhere
-                            <CreateOutlinedIcon onClick={() => setOpenElsewhewe(true)} />
+                            <CreateOutlinedIcon className='hide' onClick={() => setOpenElsewhewe(true)} />
                         </h1>
                         <ElsewhereModal 
                             openElsewhewe={openElsewhewe} 

@@ -202,9 +202,10 @@ input, button, textarea, select, option {
 }
 
 .newProfile__resume {
+    position: relative;
     background: #fff url('../../images/newProfile/resume.svg') no-repeat center 20px;
     background-size: 25%;
-    height: 235px;
+    height: max-content;
 }
 
 .newProfile__resume > div > h3 {
@@ -214,6 +215,55 @@ input, button, textarea, select, option {
 .newProfile__education > div {
     display: flex;
     align-items: flex-start;
+}
+
+.newProfile__resume__selected {
+    /* display: flex; */
+    margin: auto;
+    width: 70%;
+}
+
+.newProfile__resume__selected > img {
+    width: 60px;
+    margin-right: 15px;
+}
+
+.newProfile__resume__selected > div > h3 {
+    margin: 3px 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.newProfile__resume__selected > div > p {
+    margin: 0px;
+    opacity: 0.85;
+    font-weight: 400;
+}
+
+.newProfile__resume__selected__icons {
+    position: absolute;
+    top: 1.5rem;
+    right: 1rem;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s linear 300ms, opacity 300ms;
+}
+
+.newProfile__resume__selected__icons .MuiSvgIcon-root {
+    color: #aaa !important;
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+}
+
+.newProfile__resume__selected__icons .MuiSvgIcon-root:first-child {
+    margin-right: 15px;
+    color: #666 !important;
+}
+
+.newProfile__resume:hover .newProfile__resume__selected__icons{
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s linear 0s, opacity 300ms;
 }
 
 .newProfile__education > div > .MuiSvgIcon-root {
@@ -260,6 +310,14 @@ input, button, textarea, select, option {
     margin-bottom: 1rem;
 }
 
+
+.newProfile__role:hover .hide, .newProfile__exp:hover .hide, .newProfile__skill:hover .hide, .newProfile__loc:hover .hide,
+.newProfile__right__elsewhere:hover .hide {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s linear 0s, opacity 300ms;
+}
+
 .newProfile__role > h2, .newProfile__exp > h2, .newProfile__skill > h2, .newProfile__loc > h2,
 .newProfile__right__elsewhere > h1 {
     margin-bottom: 0px;
@@ -274,6 +332,9 @@ input, button, textarea, select, option {
 .newProfile__right__elsewhere > h1 > .MuiSvgIcon-root {
     color: #aaa !important;
     cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s linear 300ms, opacity 300ms;
 }
 
 .newProfile__role > p, .newProfile__exp > p, .newProfile__skill > p, .newProfile__loc > p {
@@ -304,6 +365,12 @@ input, button, textarea, select, option {
 
 .newProfile__loc > p {
     margin-bottom: 0px;
+}
+
+.newProfile__right__elsewhere:hover .hide {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s linear 0s, opacity 300ms;
 }
 
 .newProfile__right__elsewhere > p {
