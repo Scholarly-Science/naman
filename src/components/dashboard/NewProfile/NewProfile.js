@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './NewProfile.css';
 import Avatar from '@material-ui/core/Avatar';
+import { Badge } from '@material-ui/core';
 
 import { roles, experience, skills, location, yearsfunc, months } from './NewProfileData';
 import ExperienceModal from './ExperienceModal/ExperienceModal';
@@ -12,6 +13,7 @@ import ProfileModal from './ProfileModal/ProfileModal';
 import DesktopWindowsIcon from '@material-ui/icons/DesktopWindows';
 import CreateOutlinedIcon from '@material-ui/icons/CreateOutlined';
 import DeleteIcon from '@material-ui/icons/Delete';
+import AvatarEdit from '../../images/newProfile/avatar-edit.png';
 import resumeSelected from '../../images/newProfile/resume-selected.svg';
 import github from '../../images/newProfile/github.svg';
 import heart from '../../images/newProfile/heart.svg';
@@ -32,21 +34,26 @@ function NewProfile() {
     const [openElsewhewe, setOpenElsewhewe] = useState(false);
     // Years
     const [years, setYears] = useState([]);
+    //Profile Info is Stored Here 
+    const [userFirstName, setUserFirstName] = useState('');
+    const [userLastName, setUserLastName] = useState('');
+    const [aboutUser, setAboutUser] = useState('');
     // Selected preferences are stored here
     const [selectedRoles, setSelectedRoles] = useState([]);
     const [selectedExp, setSelectedExp] = useState([]);
     const [selectedSkills, setSelectedSkills] = useState([]);
     const [selectedLoc, setSelectedLoc] = useState([]);
-    // Added Experiences & Resume are stored here
+    // Added Avatar, Experiences & Resume are stored here
     const [addExperience, setAddExperience] = useState([]);
     const [addResume, setAddResume] = useState();
+    const [addAvatar, setAvatar] = useState();
     // Added Elsewhere projects are added here
     const [personalWebsite, setPersonalWebsite] = useState('');
     const [linkedinURL, setLinkedinURL] = useState('');
     const [passionProject, setPassionProject] = useState('');
     const [githubURL, setGithubURL] = useState('');
     const [line, setLine] = useState('');
-    const [stackOverflow, setstackOverflow] = useState('');
+    const [weChat, setWeChat] = useState('');
 
     useEffect(() => {
         setYears(yearsfunc());
@@ -62,7 +69,15 @@ function NewProfile() {
         setAddResume(img);
     }
 
-    console.log(addResume);
+    const openAvatarFile = () => {
+        document.getElementById('avatar-file').click();
+    }
+
+    const changeAvatar = () => {
+        let select = document.getElementById('avatar-file'),
+        avatar = select.files[0];
+        setAvatar(avatar);
+    }
 
     const setRoles = ( role ) => {
         if(selectedRoles?.indexOf(role) !== -1) {
@@ -117,15 +132,37 @@ function NewProfile() {
             <div className='newProfile__container'>
                 <section className='newProfile__left'>
                     <div className='newProfile__userBio'>
-                        <Avatar alt='Akshay' src='jhcdbjbdcjf'></Avatar>
-                        <div className='newProfile__userBio__info'>
-                            <h4>Akshay Kumar</h4>
-                            <h5>University, year</h5>
-                            <p>Other, 2016</p>
-                            <p>BA/BS in Biochemistry</p>
-                            <button className='btn' onClick={() => setOpenProfile(true)} style={{marginTop: '7px'}}>Edit Profile</button>
-                            <ProfileModal openProfile={openProfile} setOpenProfile={setOpenProfile} />
+                        <div>
+                            <Badge
+                                overlap="circle"
+                                anchorOrigin={{
+                                  vertical: 'top',
+                                  horizontal: 'right',
+                                }}
+                                badgeContent={
+                                    <img onClick={openAvatarFile} 
+                                        style={{width: '20px', marginLeft: '-35px', cursor: 'pointer'}} 
+                                        src={AvatarEdit} alt='avatar-edit' />
+                                }
+                            >
+                                <input type='file' id='avatar-file' onChange={changeAvatar} style={{display: 'none'}}/>
+                                <Avatar alt={userFirstName || 'Akshay'} onClick={openAvatarFile} src='jhcdbjbdcjf'></Avatar>
+                            </Badge>
+                            <div className='newProfile__userBio__info'>
+                                <h4>{userFirstName} {userLastName}</h4>
+                                <h5>MontClair State University, Spring 2021</h5>
+                                <p>BA/BS, Biochemistry</p>
+                                <button className='btn' onClick={() => setOpenProfile(true)} style={{marginTop: '7px'}}>Edit Profile</button>
+                                <ProfileModal 
+                                    openProfile={openProfile} 
+                                    setOpenProfile={setOpenProfile} 
+                                    setUserFirstName={setUserFirstName}
+                                    setUserLastName={setUserLastName}
+                                    setAboutUser={setAboutUser}
+                                />
+                            </div>
                         </div>
+                        {aboutUser && <p className='newProfile__userBio_description'>{aboutUser}</p>}
                     </div>
 
                     <div className='newProfile__experience' 
@@ -136,8 +173,8 @@ function NewProfile() {
                         <h1>EXPERIENCE</h1>
                         {addExperience?.length > 0 ? (
                             <div className='experiences__card'>
-                                {addExperience.map(exp => (
-                                    <div>
+                                {addExperience.map((exp, index) => (
+                                    <div key={index}>
                                         <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQSHDJ35rSeDJiqegz6fAWizKIx3X3xlK8Wgg&usqp=CAU' alt='google' />
                                         <div>
                                             <h2>{exp.title} - {exp.companyName}</h2>
@@ -145,7 +182,7 @@ function NewProfile() {
                                             <h4>{exp.location}</h4>
                                             <p>{exp.textarea || 'Description'}</p>
                                         </div>
-                                        <CreateOutlinedIcon />
+                                        <CreateOutlinedIcon className='hide' />
                                     </div>                                    
                                 ))}
                                 <button onClick={() => setOpen(true)}>+ Add Experience</button>
@@ -304,14 +341,14 @@ function NewProfile() {
                             setPassionProject={setPassionProject}
                             setGithubURL={setGithubURL}
                             setLine={setLine}
-                            setstackOverflow={setstackOverflow}
+                            setWeChat={setWeChat}
                             // Data to modal if available
                             personalWebsite={personalWebsite}
                             linkedinURL={linkedinURL}
                             passionProject={passionProject}
                             githubURL={githubURL}
                             line={line}
-                            stackOverflow={stackOverflow}
+                            weChat={weChat}
                         />
                         <p>
                             <img src={personal} alt='personal' />
@@ -340,10 +377,10 @@ function NewProfile() {
                             </p>
                         }
                         {
-                            stackOverflow && 
+                            weChat && 
                             <p>
                                 <img src={lineimg} alt='line' />
-                                <a href={stackOverflow} target='_blank'>{stackOverflow}</a>
+                                <a href={weChat} target='_blank'>{weChat}</a>
                             </p>
                         }
                     </div>

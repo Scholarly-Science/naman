@@ -13,6 +13,7 @@ function ExperienceModal({ open, setOpen, years, addExperience }) {
     const [checked, setChecked] = useState(false);
     const [checkedTo, setCheckedTo] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [companyName, setCompanyName] = useState('');
 
     const cancel = (e) => {
         e.preventDefault();
@@ -20,6 +21,7 @@ function ExperienceModal({ open, setOpen, years, addExperience }) {
     }
 
     const save = (data) => {
+        data.companyName = companyName;
         addExperience.push(data);
         setLoading(true);
         setTimeout(() => {
@@ -38,7 +40,6 @@ function ExperienceModal({ open, setOpen, years, addExperience }) {
                 <div className='experience__modal__form'>
                     <Formik
                         initialValues={{
-                            companyName: '',
                             website: '',
                             title: '',
                             location: '',
@@ -60,7 +61,7 @@ function ExperienceModal({ open, setOpen, years, addExperience }) {
                         }) => (
                             <form onSubmit={handleSubmit}>
                                 <label>Company / Organization Name</label>
-                                <InputSearch name='companyName' />
+                                <InputSearch setCompanyName={setCompanyName} />
                                 <label>Website</label>
                                 <input type='text' name='website' onChange={handleChange} value={values.website} placeholder='https://www.scholarly-science.com' />
                                 <label>Title</label>

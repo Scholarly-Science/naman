@@ -8,8 +8,8 @@ import { Formik } from 'formik';
 
 function ElsewhereModal({ 
     openElsewhewe, setOpenElsewhewe, setPersonalWebsite, setLinkedinURL, 
-    setPassionProject, setGithubURL, setLine, setstackOverflow,
-    personalWebsite, linkedinURL, passionProject, githubURL, line, stackOverflow 
+    setPassionProject, setGithubURL, setLine, setWeChat,
+    personalWebsite, linkedinURL, passionProject, githubURL, line, weChat 
 }) {
     const [loading, setLoading] = useState(false);
 
@@ -30,7 +30,7 @@ function ElsewhereModal({
         setPassionProject(data.passion);
         setGithubURL(data.github);
         setLine(data.line);
-        setstackOverflow(data.stackOverflow);
+        setWeChat(data.weChat);
     }
 
     return (
@@ -44,7 +44,7 @@ function ElsewhereModal({
                 initialValues={{
                     github: githubURL,
                     linkedin: linkedinURL,
-                    stackOverflow: stackOverflow,
+                    weChat: weChat,
                     personalWebsite: personalWebsite,
                     passion: passionProject,
                     line: line,
@@ -60,23 +60,23 @@ function ElsewhereModal({
                     touched
                 }) => (
                     <form onSubmit={handleSubmit}>
-                        <label>Your Github URL <span>(optional)</span></label>
-                        <input type='text' name='github' onChange={handleChange} value={values.github} placeholder='https://www.scholarly-science.git' />
-                        <label>Your Linkedin URL <span>(optional)</span></label>
+                        <label>Linkedin URL <span>(optional)</span></label>
                         <input type='text' name='linkedin' onChange={handleChange} value={values.linkedin} placeholder='https://www.scholarly-science.com' />
-                        <label>Your StackOverflow URL <span>(optional)</span></label>
-                        <input type='text' name='stackOverflow' onChange={handleChange} value={values.stackOverflow} placeholder='https://www.scholarly-science.com' />
-                        <label>Your Personal Website <span>(optional)</span></label>
-                        <input type='text' name='personalWebsite' onChange={handleChange} value={values.personalWebsite} placeholder='https://www.scholarly-science.com'/>
-                        <label>Your Passion Projects <span>(optional)</span></label>
-                        <input type='text' name='passion' onChange={handleChange} value={values.passion} placeholder='Worked on something you loved add a link'/>
-                        <label>Line <span>(optional)</span></label>
+                        <label>Github URL <span>(optional)</span></label>
+                        <input type='text' name='github' onChange={handleChange} value={values.github} placeholder='https://www.scholarly-science.git' />
+                        <label>Line ID <span>(optional)</span></label>
                         <input type='text' name='line' onChange={handleChange} value={values.line} placeholder='Worked on something you loved add a link'/>
+                        <label>WeChat ID <span>(optional)</span></label>
+                        <input type='text' name='weChat' onChange={handleChange} value={values.weChat} placeholder='https://www.scholarly-science.com' />
+                        <label>Personal Website <span>(optional)</span></label>
+                        <input type='text' name='personalWebsite' onChange={handleChange} value={values.personalWebsite} placeholder='https://www.scholarly-science.com'/>
+                        <label>Passion Projects <span>(optional)</span></label>
+                        <input type='text' name='passion' onChange={handleChange} value={values.passion} placeholder='Worked on something you loved add a link'/>
                         <div className='elsewhere__button'>
-                                <button type='button' onClick={cancel}>Cancel</button>
-                                <button disabled={loading} type='submit'>
-                                    {loading ? 'Saving...' : 'Save'}
-                                </button>
+                            <button type='button' onClick={cancel}>Cancel</button>
+                            <button disabled={loading} type='submit'>
+                                {loading ? 'Saving...' : 'Save'}
+                            </button>
                         </div>
                     </form>
                 )}

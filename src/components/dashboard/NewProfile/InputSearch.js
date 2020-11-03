@@ -1,13 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './inputSearch.css';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
-function InputSearch() {
-    const [textfield, setTextfield] = useState('');
-
-    console.log(textfield);
-
+function InputSearch({ setCompanyName }) {
     return (
         <div>
         <Autocomplete
@@ -16,7 +12,7 @@ function InputSearch() {
             disableClearable
             options={top100Films.map((option) => option.title)}
             renderInput={(params) => (
-            <div>
+             <div>
                 <TextField
                     className='inputSearch__textfield'
                     {...params}
@@ -24,8 +20,8 @@ function InputSearch() {
                     margin="normal"
                     variant="outlined"
                     InputProps={{ ...params.InputProps, type: 'search' }}
-                    value={textfield}
-                    onChange={(e) => setTextfield(e.target.value)}
+                    value={params.inputProps.value}
+                    onChange={setCompanyName(params.inputProps.value)}
                 />
             </div>
             )}
