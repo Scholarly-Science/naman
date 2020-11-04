@@ -82,7 +82,6 @@ input, button, textarea, select, option {
 }
 
 .experiences__card > div > .MuiSvgIcon-root {
-    opacity: 1;
     position: absolute;
     right: 0;
     color: #aaa !important;
@@ -99,6 +98,7 @@ input, button, textarea, select, option {
     right: 20px;
     color: #62d5bc;
     font-size: .85rem;
+    font-weight: 600;
     outline: none;
     border: none;
     background-color: transparent;
@@ -166,6 +166,7 @@ input, button, textarea, select, option {
     font-size: .875rem;
     font-weight: 500;
     color: #3e5963;
+    line-height: 1.25rem;
 }
 
 .newProfile__userBio__info > p {
@@ -196,7 +197,7 @@ input, button, textarea, select, option {
 
 .newProfile__experience {
     position: relative;
-    background: url('../../images/newProfile/exp-bg.svg') no-repeat center;
+    background: #fff url('../../images/newProfile/exp-bg.svg') no-repeat center;
     background-size: cover;
     min-height: max-content;
 }
@@ -419,4 +420,179 @@ input, button, textarea, select, option {
 
 .newProfile__right__elsewhere > p > a:hover {
     color: #25b2aa;
+}
+
+@media(max-width: 1024px) {
+    .newProfile {
+        padding-top: 15px;
+    }
+
+    .newProfile__container {
+        margin: auto;
+        max-width: max-content;
+    }
+
+    .newProfile__role > h2 > .MuiSvgIcon-root, .newProfile__exp > h2 > .MuiSvgIcon-root,
+    .newProfile__skill > h2 > .MuiSvgIcon-root, .newProfile__loc > h2 > .MuiSvgIcon-root,
+    .newProfile__right__elsewhere > h1 > .MuiSvgIcon-root,
+    .experiences__card > div > .MuiSvgIcon-root {    
+        visibility: visible;
+        opacity: 1;
+        transition: visibility 0s linear 0s, opacity 300ms;
+    }
+}
+
+@media(max-width: 768px) {
+    .newProfile__container {
+        display: block;
+    }
+
+    .newProfile__right {
+        margin: 0px;
+        max-width: none;
+    }
+
+    .newProfile__right__elsewhere, .newProfile__preference {
+        width: 606px;
+        margin-top: 15px;
+    }
+
+    .newProfile__userBio__info > h4 {
+        font-size: 1.2rem;
+        margin-top: 0;
+    }
+
+    .newProfile__userBio__info > h5 {
+        font-size: 1.1rem;
+        margin: 5px 0;
+    }
+
+    .newProfile__userBio__info > p {
+        font-size: .95rem;
+        color: gray;
+        margin-top: 3px;
+        margin-bottom: 5px;
+    }
+
+    .newProfile__userBio_description {
+        font-size: .95rem;
+        line-height: 140%;
+    }
+
+    .newProfile__experience__bg > h3, .newProfile__resume > div > h3 {
+        font-size: 1.3rem;
+    }
+
+    .newProfile__experience__bg > p, .newProfile__resume > div > p {
+        font-size: 1rem;
+    }
+
+    .experiences__card > div > div > h2 {
+        font-size: 1.1rem;
+    }
+
+    .experiences__card > div > div > h3, .experiences__card > div > div > h4, 
+    .experiences__card > div > div > p {
+        font-size: 1rem;
+    }
+
+    .experiences__card > div > div > h4 {
+        opacity: 0.9;
+    }
+
+    .newProfile__role > h2, .newProfile__exp > h2, 
+    .newProfile__skill > h2, .newProfile__loc > h2, 
+    .newProfile__right__elsewhere > h1 {
+        font-size: 1rem;
+    }
+
+    .newProfile__role > p, .newProfile__exp > p, .newProfile__skill > p, .newProfile__loc > p {
+        font-size: .95rem;
+    }
+
+    .newProfile__role > div > p, .newProfile__exp > div > p, 
+    .newProfile__skill > div > p, .newProfile__loc > div > p {
+        font-size: .9rem;
+    }
+
+    .newProfile__right__elsewhere > p {
+        font-size: .95rem;
+    }
+}
+
+@media(max-width: 540px) {
+    .newProfile__userBio, .newProfile__experience, .newProfile__resume, .newProfile__education, 
+    .newProfile__right__elsewhere, .newProfile__preference {
+        border-radius: 0;
+        border-right: 0;
+        border-left: 0;
+    }
+}
+
+@media(max-width: 540px) {
+    .newProfile__userBio__info > h4 {
+        font-size: 1.4rem;
+        line-height: normal;
+    }
+
+    .newProfile__userBio__info > h5 {
+        font-size: 1.2rem;
+    }
+
+    .newProfile__userBio__info > p {
+        font-size: 1.1rem;
+    }
+
+    .newProfile__experience__bg > h3, .newProfile__resume > div > h3 {
+        font-size: 1.5rem;
+    }
+
+    .newProfile__experience__bg > p, .newProfile__resume > div > p {
+        font-size: 1.1rem;
+        color: #000;
+    }
+
+    .experiences__card > div > div > h2 {
+        font-size: 1.3rem;
+        line-height: normal;
+    }
+
+    .experiences__card > div > div > h3, .experiences__card > div > div > h4, 
+    .experiences__card > div > div > p {
+        font-size: 1.15rem;
+    }
+
+    .experiences__card > div > div > h4 {
+        opacity: .975;
+    }
+
+    .newProfile__resume__selected > div > h3 {
+        font-size: 1.2rem;
+    }
+
+    .newProfile__resume__selected > div > p {
+        font-size: 1.1rem;
+        opacity: .95;
+    }
+
+    .newProfile__role > h2, .newProfile__exp > h2, .newProfile__skill > h2, .newProfile__loc > h2, 
+    .newProfile__right__elsewhere > h1 {
+        font-size: 1.15rem;
+        margin-bottom: 5px;
+    }
+
+    .newProfile__role > p, .newProfile__exp > p, .newProfile__skill > p, .newProfile__loc > p {
+        font-size: 1.1rem;
+    }
+
+    .newProfile__role > div > p, .newProfile__exp > div > p, .newProfile__skill > div > p, 
+    .newProfile__loc > div > p {
+        font-size: 1.05rem;
+        padding: .5rem 1rem;
+        margin-top: .7rem;
+    }
+
+    .newProfile__right__elsewhere > p , .newProfile__right__elsewhere > p > a {
+        font-size: 1.2rem;
+    }
 }

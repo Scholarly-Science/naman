@@ -180,3 +180,40 @@
     background: #1a73e8;
     border: none;
 }
+
+@media(max-width: 768px) {
+    .profile__modal, .elsewhere__modal {
+        height: max-content;
+        margin: auto;
+    }
+
+    .experience__modal__form > form > label, .elsewhere__modal__form > form > label, 
+    .profile__modal__form > form > label {
+        font-size: .95rem;
+    }
+
+    .experience__modal__form::-webkit-scrollbar, .elsewhere__modal__form::-webkit-scrollbar, .profile__modal__form::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .experience__modal__form, .elsewhere__modal__form, .profile__modal__form {
+        -ms-overflow-style: none;
+    }
+}
+
+@media(max-width: 414px) {
+    .experience__modal {
+        width: 100%;
+        margin: auto;
+    }
+
+    .experience__modal > div.MuiDialog-container.MuiDialog-scrollPaper > .MuiDialog-paperFullScreen {
+        border-radius: 0px;
+    }
+
+    .experience__modal__header > .MuiSvgIcon-root, 
+    .elsewhere__modal__header > .MuiSvgIcon-root, 
+    .profile__modal__header > .MuiSvgIcon-root {
+        font-size: 2.5rem !important;
+    }
+}

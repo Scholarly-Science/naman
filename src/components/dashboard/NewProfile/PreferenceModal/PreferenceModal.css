@@ -89,3 +89,14 @@
     border-radius: 1.5rem;
     cursor: pointer;
 }
+
+@media(max-width: 414px) {
+    .preference__modal {
+        width: auto;
+        margin: auto;
+    }
+
+    .preference__modal > div.MuiDialog-container.MuiDialog-scrollPaper > div {
+        border-radius: 0px;
+    }
+}

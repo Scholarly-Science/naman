@@ -37,3 +37,9 @@
 .inputSearch__autocomplete .PrivateNotchedOutline-root-1 {
     border: none !important;
 }
+
+@media(max-width: 414px) {
+    .MuiFormControl-fullWidth {
+        width: 99.2% !important;
+    }
+}
