@@ -14,6 +14,7 @@ function ExperienceModal({ open, setOpen, years, addExperience }) {
     const [checkedTo, setCheckedTo] = useState(false);
     const [loading, setLoading] = useState(false);
     const [companyName, setCompanyName] = useState('');
+    const [companyImg, setCompanyImg] = useState('');
 
     const cancel = (e) => {
         e.preventDefault();
@@ -22,6 +23,7 @@ function ExperienceModal({ open, setOpen, years, addExperience }) {
 
     const save = (data) => {
         data.companyName = companyName;
+        data.companyImg = companyImg;
         addExperience.push(data);
         setLoading(true);
         setTimeout(() => {
@@ -61,7 +63,7 @@ function ExperienceModal({ open, setOpen, years, addExperience }) {
                         }) => (
                             <form onSubmit={handleSubmit}>
                                 <label>Company / Organization Name</label>
-                                <InputSearch setCompanyName={setCompanyName} />
+                                <InputSearch setCompanyName={setCompanyName} setCompanyImg={setCompanyImg} />
                                 <label>Website</label>
                                 <input type='text' name='website' onChange={handleChange} value={values.website} placeholder='https://www.scholarly-science.com' />
                                 <label>Title</label>

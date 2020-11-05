@@ -1,29 +1,32 @@
 import React from 'react';
 import './inputSearch.css';
-import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
-function InputSearch({ setCompanyName }) {
+function InputSearch({ setCompanyName, setCompanyImg }) {
     return (
         <div>
         <Autocomplete
             className='inputSearch__autocomplete'
             freeSolo
             disableClearable
-            options={top100Films.map((option) => option.title)}
+            options={top100Films}
+            getOptionLabel={(option) => option.title}
+            onChange={(event, value) => setCompanyImg(value.img)}
+            renderOption={option  => (
+              <React.Fragment>
+                <img src={option.img} style={{width: '45px', marginRight: '10px', objectFit: 'contain'}} alt='img' />
+                {option.title}
+              </React.Fragment>
+            )}
             renderInput={(params) => (
-             <div>
-                <TextField
-                    className='inputSearch__textfield'
-                    {...params}
-                    placeholder='Example: Google or Code 2040'
-                    margin="normal"
-                    variant="outlined"
-                    InputProps={{ ...params.InputProps, type: 'search' }}
-                    value={params.inputProps.value}
-                    onChange={setCompanyName(params.inputProps.value)}
-                />
-            </div>
+                <div ref={params.InputProps.ref}>
+                    <input 
+                        value={params.inputProps.value} 
+                        placeholder='Example: Google or Code 2040'
+                        onChange={setCompanyName(params.inputProps.value)} 
+                        type="text" {...params.inputProps} 
+                    />
+                </div>
             )}
         />
         </div>
@@ -31,16 +34,16 @@ function InputSearch({ setCompanyName }) {
 }
 
 const top100Films = [
-    { title: 'The Shawshank Redemption', year: 1994 },
-    { title: 'The Godfather', year: 1972 },
-    { title: 'The Godfather: Part II', year: 1974 },
-    { title: 'The Dark Knight', year: 2008 },
-    { title: '12 Angry Men', year: 1957 },
-    { title: "Schindler's List", year: 1993 },
-    { title: 'Pulp Fiction', year: 1994 },
-    { title: 'The Lord of the Rings: The Return of the King', year: 2003 },
-    { title: 'The Good, the Bad and the Ugly', year: 1966 },
-    { title: 'Fight Club', year: 1999 }
+    { title: 'The Shawshank Redemption', img: 'https://yt3.ggpht.com/a/AATXAJxHHP_h8bUovc1qC4c07sVXxVbp3gwDEg-iq8gbFQ=s900-c-k-c0x00ffffff-no-rj' },
+    { title: 'The Godfather', img: 'https://yt3.ggpht.com/a/AATXAJxHHP_h8bUovc1qC4c07sVXxVbp3gwDEg-iq8gbFQ=s900-c-k-c0x00ffffff-no-rj' },
+    { title: 'The Godfather: Part II', img: 'https://yt3.ggpht.com/a/AATXAJxHHP_h8bUovc1qC4c07sVXxVbp3gwDEg-iq8gbFQ=s900-c-k-c0x00ffffff-no-rj' },
+    { title: 'The Dark Knight', img: 'https://yt3.ggpht.com/a/AATXAJxHHP_h8bUovc1qC4c07sVXxVbp3gwDEg-iq8gbFQ=s900-c-k-c0x00ffffff-no-rj' },
+    { title: '12 Angry Men', img: 'https://yt3.ggpht.com/a/AATXAJxHHP_h8bUovc1qC4c07sVXxVbp3gwDEg-iq8gbFQ=s900-c-k-c0x00ffffff-no-rj' },
+    { title: "Schindler's List", img: 'https://yt3.ggpht.com/a/AATXAJxHHP_h8bUovc1qC4c07sVXxVbp3gwDEg-iq8gbFQ=s900-c-k-c0x00ffffff-no-rj' },
+    { title: 'Pulp Fiction', img: 'https://yt3.ggpht.com/a/AATXAJxHHP_h8bUovc1qC4c07sVXxVbp3gwDEg-iq8gbFQ=s900-c-k-c0x00ffffff-no-rj' },
+    { title: 'The Lord of the Rings: The Return of the King', img: 'https://yt3.ggpht.com/a/AATXAJxHHP_h8bUovc1qC4c07sVXxVbp3gwDEg-iq8gbFQ=s900-c-k-c0x00ffffff-no-rj' },
+    { title: 'The Good, the Bad and the Ugly', img: 'https://yt3.ggpht.com/a/AATXAJxHHP_h8bUovc1qC4c07sVXxVbp3gwDEg-iq8gbFQ=s900-c-k-c0x00ffffff-no-rj' },
+    { title: 'Fight Club', img: 'https://yt3.ggpht.com/a/AATXAJxHHP_h8bUovc1qC4c07sVXxVbp3gwDEg-iq8gbFQ=s900-c-k-c0x00ffffff-no-rj' }
 ]
 
 export default InputSearch

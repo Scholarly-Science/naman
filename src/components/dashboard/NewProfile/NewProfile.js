@@ -175,7 +175,10 @@ function NewProfile() {
                             <div className='experiences__card'>
                                 {addExperience.map((exp, index) => (
                                     <div key={index}>
-                                        <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQSHDJ35rSeDJiqegz6fAWizKIx3X3xlK8Wgg&usqp=CAU' alt='google' />
+                                        <img 
+                                            src={`${exp.companyImg || 'https://wi-images.condecdn.net/image/nrjyg4aGK0k/crop/2040/f/hangout.jpg'}`} 
+                                            alt={`${exp.companyName || 'meet'}`} 
+                                        />
                                         <div>
                                             <h2>{exp.title} - {exp.companyName}</h2>
                                             <h3>{`${exp.fromMonth} ${exp.fromYear}`} - {`${exp.toMonth} ${exp.toYear}`}</h3>
@@ -249,7 +252,7 @@ function NewProfile() {
                                     Preferred roles
                                     <CreateOutlinedIcon className='hide' onClick={() => setOpenRoles(true)} />
                                 </h2>
-                                    <PreferenceModal 
+                                    <PreferenceModal
                                         pref={roles}
                                         open={openRoles}
                                         close={setOpenRoles}
@@ -260,7 +263,7 @@ function NewProfile() {
                                     />
                                 {selectedRoles?.length > 0 ? (
                                     <div>
-                                        {selectedRoles?.map(role => <p>{role}</p>)}
+                                        {selectedRoles?.map(role => <p key={role}>{role}</p>)}
                                     </div>
                                 ) : (<p>What are your roles</p>)}
                             </div>
@@ -280,7 +283,7 @@ function NewProfile() {
                                     />
                                 {selectedExp?.length > 0 ? (
                                     <div>
-                                        {selectedExp?.map(role => <p>{role}</p>)}
+                                        {selectedExp?.map(exp => <p key={exp}>{exp}</p>)}
                                     </div>
                                 ) : (<p>What areas of experience do you have?</p>)}
                             </div>
@@ -300,7 +303,7 @@ function NewProfile() {
                                     />
                                 {selectedSkills?.length > 0 ? (
                                     <div>
-                                        {selectedSkills?.map(skill => <p>{skill}</p>)}
+                                        {selectedSkills?.map(skill => <p key={skill}>{skill}</p>)}
                                     </div>
                                 ) : (<p>Rank your skills</p>)}
                             </div>
@@ -320,7 +323,7 @@ function NewProfile() {
                                     />
                                 {selectedLoc?.length > 0 ? (
                                     <div>
-                                        {selectedLoc?.map(loc => <p>{loc}</p>)}
+                                        {selectedLoc?.map(loc => <p key={loc}>{loc}</p>)}
                                     </div>
                                 ) : (<p>Where do you want to work?</p>)}
                             </div>
