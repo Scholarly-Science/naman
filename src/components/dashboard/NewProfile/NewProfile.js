@@ -260,6 +260,7 @@ function NewProfile() {
                                         heading='Edit My Interests'
                                         info='Which of these roles are you most interested in?'
                                         choose='Choose up to 7'
+                                        placeholder='Example: Sales, Marketing...'
                                     />
                                 {selectedRoles?.length > 0 ? (
                                     <div>
@@ -280,6 +281,7 @@ function NewProfile() {
                                         heading='Edit My Background'
                                         info='What area have you had the most experience with?'
                                         choose='Choose up to 7'
+                                        placeholder='Example: Data Science, Data Analyst...'
                                     />
                                 {selectedExp?.length > 0 ? (
                                     <div>
@@ -300,6 +302,7 @@ function NewProfile() {
                                         heading='Edit My Background'
                                         info='Rank your skills from the list below.'
                                         choose='Choose up to 7'
+                                        placeholder='Example: Java, C++'
                                     />
                                 {selectedSkills?.length > 0 ? (
                                     <div>
@@ -320,6 +323,7 @@ function NewProfile() {
                                         heading='Edit My Interests'
                                         info='Which location would you like to work in?'
                                         choose='Choose up to 7'
+                                        placeholder='Example: London, Spain...'
                                     />
                                 {selectedLoc?.length > 0 ? (
                                     <div>

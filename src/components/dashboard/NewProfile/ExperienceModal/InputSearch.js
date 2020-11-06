@@ -1,39 +1,55 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './inputSearch.css';
-import Autocomplete from '@material-ui/lab/Autocomplete';
 
 function InputSearch({ setCompanyName, setCompanyImg }) {
+    const [input, setInput] = useState('');
+    const [blur, setBlur] = useState(false);
+    const [suggestions, setSuggestions] = useState([]);
+
+    const handleInput = (e) => {
+        setInput(e.target.value);
+        const value = e.target.value;
+        const suggetionsArr = top100Films.filter(film => film.title.toLowerCase().startsWith(value.toLowerCase()));
+        setSuggestions(suggetionsArr);
+        if(value === '') {
+            setSuggestions([]);
+        }
+        setCompanyName(input);
+        setCompanyImg(null);
+    }
+
+    const handleClick = (title, img) => {
+        setSuggestions([]);
+        setInput(title);
+        setCompanyName(title);
+        setCompanyImg(img);
+    }
+
     return (
-        <div>
-        <Autocomplete
-            className='inputSearch__autocomplete'
-            freeSolo
-            disableClearable
-            options={top100Films}
-            getOptionLabel={(option) => option.title}
-            onChange={(event, value) => setCompanyImg(value.img)}
-            renderOption={option  => (
-              <React.Fragment>
-                <img src={option.img} style={{width: '45px', marginRight: '10px', objectFit: 'contain'}} alt='img' />
-                {option.title}
-              </React.Fragment>
-            )}
-            renderInput={(params) => (
-                <div ref={params.InputProps.ref}>
-                    <input 
-                        value={params.inputProps.value} 
-                        placeholder='Example: Google or Code 2040'
-                        onChange={setCompanyName(params.inputProps.value)} 
-                        type="text" {...params.inputProps} 
-                    />
-                </div>
-            )}
-        />
+        <div className='inputSearch'>
+            <input 
+                type='text' 
+                onChange={handleInput} 
+                onBlur={() => setBlur(true)} 
+                onFocus={() => setBlur(false)} 
+                value={input} 
+                placeholder='Example: Google, Facebook...' 
+            />
+            { suggestions.length > 0 && !blur &&
+                <ul>
+                    {suggestions?.map(films => (
+                        <li onClick={() => handleClick(films.title, films.img)}> 
+                            <img src={films.img} alt='imggg' style={{width: '40px'}} />
+                            {films.title} 
+                        </li>
+                        ))}
+                </ul>
+            }
         </div>
     )
 }
 
-const top100Films = [
+export const top100Films = [
     { title: 'The Shawshank Redemption', img: 'https://yt3.ggpht.com/a/AATXAJxHHP_h8bUovc1qC4c07sVXxVbp3gwDEg-iq8gbFQ=s900-c-k-c0x00ffffff-no-rj' },
     { title: 'The Godfather', img: 'https://yt3.ggpht.com/a/AATXAJxHHP_h8bUovc1qC4c07sVXxVbp3gwDEg-iq8gbFQ=s900-c-k-c0x00ffffff-no-rj' },
     { title: 'The Godfather: Part II', img: 'https://yt3.ggpht.com/a/AATXAJxHHP_h8bUovc1qC4c07sVXxVbp3gwDEg-iq8gbFQ=s900-c-k-c0x00ffffff-no-rj' },

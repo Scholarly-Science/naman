@@ -1,0 +1,53 @@
+.inputSearch > input {
+    font-size: .875rem;
+    margin: 0;
+    margin-bottom: 13px;
+    background: transparent;
+    color: #030303;
+    caret-color: #2dc5a1;
+    display: block;
+    height: 2.5rem;
+    line-height: 1.375rem;
+    outline: none;
+    padding: 0 .875rem .1em;
+    width: 94.5%;
+    border-radius: .3125rem;
+    border: 1px solid #ddd;
+    transition: all 0.2s ease-in;
+}
+
+.inputSearch > input:focus {
+    border: 1px solid #000;
+}
+
+.inputSearch > ul {
+    position: absolute;
+    z-index: 1;
+    width: 86%;
+    border: 1px solid #ddd;
+    margin-top: 0px;
+    padding: 10px;
+    list-style: none;
+    border-radius: 10px;
+    background-color: #fff;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 140px;
+}
+
+.inputSearch > ul > li {
+    display: flex;
+    font-size: .95rem;
+    font-weight: 500;
+    cursor: pointer;
+    align-items: center;
+    margin-bottom: 7px;
+}
+
+.inputSearch > ul > li:last-child {
+    margin-bottom: 0px;
+}
+
+.inputSearch > ul > li > img {
+    margin-right: 10px;
+}

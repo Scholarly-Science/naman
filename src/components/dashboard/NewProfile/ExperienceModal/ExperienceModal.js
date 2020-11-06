@@ -7,7 +7,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Dialog from '@material-ui/core/Dialog';
 import CloseIcon from '@material-ui/icons/Close';
 import { months } from '../NewProfileData';
-import InputSearch from '../InputSearch';
+import InputSearch from './InputSearch';
 
 function ExperienceModal({ open, setOpen, years, addExperience }) {
     const [checked, setChecked] = useState(false);

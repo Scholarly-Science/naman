@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import AssignmentCards from './AssignmentCards';
 import './Assignments.css';
 import Pagination from '@material-ui/lab/Pagination';
@@ -32,13 +32,19 @@ import SoftwareTestingAndDebugging from '../../images/assignment-Cards/cards_Sof
 import TalentAcquisition from '../../images/assignment-Cards/cards_Talent acquisition.svg';
 import UI from '../../images/assignment-Cards/cards_UI Designer.svg';
 import UX from '../../images/assignment-Cards/cards_UX researcher.svg';
+import AssignmentsCardsSkeleton from './AssignmentsCardsSkeleton';
 
 function Assignments() {
+    const [loading, setLoading] = useState(false);
     const [page, setPage] = useState(1);
     const [initial, setInitial] = useState(0);
     const [limit, setLimit] = useState(12);
 
     const handleChange = (event, value) => {
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false);
+        }, 1000);
         setPage(value);
         if(value === 1) {
             setInitial(0);
@@ -48,14 +54,14 @@ function Assignments() {
             setInitial((value * 12) - 12);
         }
     };
-
-    console.log(initial, 'initial');
-    console.log(limit, 'limit');
-
+    
     return (
         <div className='assignments'>
             <ul className='assignments__cards'>
-                {cardsData.slice(initial, limit).map(card => <li><AssignmentCards image={card.img} label={card.text} /></li>)}
+                {cardsData.slice(initial, limit).map(card => loading ? <AssignmentsCardsSkeleton /> : (
+                    <li><AssignmentCards image={card.img} label={card.text} /></li>
+                )
+                )}
             </ul>            
             <Pagination 
                 className='pagination' 

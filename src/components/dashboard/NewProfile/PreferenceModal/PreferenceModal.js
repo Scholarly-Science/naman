@@ -3,8 +3,9 @@ import './PreferenceModal.css';
 
 import { Dialog } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
+import PrefSearch from './PrefSearch';
 
-function PreferenceModal({ pref, open, close, set, heading, info, choose }) {
+function PreferenceModal({ pref, open, close, set, heading, info, choose, placeholder }) {
     return (
         <div>
             <Dialog className='preference__modal' fullScreen open={open} onClose={() => close(false)}>
@@ -19,6 +20,7 @@ function PreferenceModal({ pref, open, close, set, heading, info, choose }) {
                             <h5>{info}</h5>
                             <p>{choose}</p>
                         </div>
+                        <PrefSearch placeholder={placeholder} />
                         <div className='preference__modal__roles__role'>
                             {pref?.map(pref => <p onClick={() => set(pref)}>{pref}</p>)}
                         </div>
