@@ -34,26 +34,36 @@ import UI from '../../images/assignment-Cards/cards_UI Designer.svg';
 import UX from '../../images/assignment-Cards/cards_UX researcher.svg';
 
 function Assignments() {
-    const [cardslength, setCardsLength] = useState();
     const [page, setPage] = useState(1);
-    const [cardsShown, setCardsShown] = useState();
-
-    useEffect(() => {
-        // setCardsLength(cardsData.length);
-    }, [])
+    const [initial, setInitial] = useState(0);
+    const [limit, setLimit] = useState(12);
 
     const handleChange = (event, value) => {
         setPage(value);
-        setCardsShown(value);
-
+        if(value === 1) {
+            setInitial(0);
+            setLimit(12);
+        } else {
+            setLimit(value * 12);
+            setInitial((value * 12) - 12);
+        }
     };
+
+    console.log(initial, 'initial');
+    console.log(limit, 'limit');
 
     return (
         <div className='assignments'>
             <ul className='assignments__cards'>
-                {cardsData.map(card => <li><AssignmentCards image={card.img} label={card.text} /></li>)}
+                {cardsData.slice(initial, limit).map(card => <li><AssignmentCards image={card.img} label={card.text} /></li>)}
             </ul>            
-            <Pagination count={3} color="primary" page={page} onChange={handleChange} />
+            <Pagination 
+                className='pagination' 
+                count={Math.ceil(cardsData.length / 12)} 
+                color="primary" 
+                page={page} 
+                onChange={handleChange} 
+            />
         </div>
     )
 }

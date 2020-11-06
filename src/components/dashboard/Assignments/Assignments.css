@@ -18,6 +18,12 @@
     list-style: none;
 }
 
+.pagination {
+    width: max-content;
+    margin: auto;
+    margin-top: 1rem;
+}
+
 @media(max-width: 1300px) {
     .assignments {
         min-height: 80vh;

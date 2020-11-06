@@ -1,5 +1,6 @@
 .assignmentCards {
     position: relative;
+    background-color: #fff;
     cursor: pointer;
     width: 220px;
     height: 130px;
@@ -10,6 +11,14 @@
     border-radius: 16px;
     letter-spacing: normal;
     transition: all 0.2s ease-out;
+}
+
+.assignmentCards > img {
+    position: absolute;
+    object-fit: contain;
+    width: 100%;
+    top: 0;
+    left: 0;
 }
 
 .assignmentCards:hover {
