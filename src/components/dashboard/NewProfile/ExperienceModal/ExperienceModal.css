@@ -201,19 +201,17 @@
     }
 }
 
-@media(max-width: 414px) {
-    .experience__modal {
+@media(max-width: 540px) {
+    .experience__modal, .elsewhere__modal, .profile__modal {
         width: 100%;
         margin: auto;
+        height: auto;
     }
 
-    .experience__modal > div.MuiDialog-container.MuiDialog-scrollPaper > .MuiDialog-paperFullScreen {
+    .experience__modal > div.MuiDialog-container.MuiDialog-scrollPaper > .MuiDialog-paperFullScreen, 
+    .elsewhere__modal > div.MuiDialog-container.MuiDialog-scrollPaper > .MuiDialog-paperFullScreen,
+    .profile__modal > div.MuiDialog-container.MuiDialog-scrollPaper > .MuiDialog-paperFullScreen {
         border-radius: 0px;
     }
 
-    .experience__modal__header > .MuiSvgIcon-root, 
-    .elsewhere__modal__header > .MuiSvgIcon-root, 
-    .profile__modal__header > .MuiSvgIcon-root {
-        font-size: 2.5rem !important;
-    }
 }

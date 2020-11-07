@@ -98,3 +98,20 @@
         font-size: .95rem;
     }   
 }
+
+@media(max-width: 540px) {
+    .profile__modal__form__fullname > div:first-child {
+        margin-right: 1.75rem !important;
+    }
+
+    .experience__modal__form > form > label, .elsewhere__modal__form > form > label, 
+    .profile__modal__form > form > label, .profile__modal__form__fullname > div > label, 
+    .profile__modal__form__mobile > div > label {
+        font-size: .875rem;
+    }
+
+    .profile__modal__form__fullname > div > input {
+        width: 90% !important;
+    }
+
+}

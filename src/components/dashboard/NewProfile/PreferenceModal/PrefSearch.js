@@ -21,10 +21,11 @@ function PrefSearch({ placeholder }) {
                 type='text' 
                 onChange={(e) => setInput(e.target.value)} 
                 onFocus={() => setBlur(false)} 
+                onBlur={() => setTimeout(() => setBlur(true), 200)}
                 value={input} 
                 placeholder={placeholder} 
             />
-            {input && !blur && <span onClick={() => handleClick(input)}>{input}</span>}
+            {input && !blur && <div><span onClick={() => handleClick(input)}>{input}</span></div>}
         </div>
     )
 }

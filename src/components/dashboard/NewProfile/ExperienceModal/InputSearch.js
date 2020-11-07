@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import './inputSearch.css';
 
+// Delete after rendering from backend
+import temp from '../../../images/newProfile/az-temp-icon.png';
+
 function InputSearch({ setCompanyName, setCompanyImg }) {
     const [input, setInput] = useState('');
     const [blur, setBlur] = useState(false);
@@ -57,16 +60,16 @@ function InputSearch({ setCompanyName, setCompanyImg }) {
 }
 
 export const top100Films = [
-    { title: 'The Shawshank Redemption', img: 'https://yt3.ggpht.com/a/AATXAJxHHP_h8bUovc1qC4c07sVXxVbp3gwDEg-iq8gbFQ=s900-c-k-c0x00ffffff-no-rj' },
-    { title: 'The Godfather', img: 'https://yt3.ggpht.com/a/AATXAJxHHP_h8bUovc1qC4c07sVXxVbp3gwDEg-iq8gbFQ=s900-c-k-c0x00ffffff-no-rj' },
-    { title: 'The Godfather: Part II', img: 'https://yt3.ggpht.com/a/AATXAJxHHP_h8bUovc1qC4c07sVXxVbp3gwDEg-iq8gbFQ=s900-c-k-c0x00ffffff-no-rj' },
-    { title: 'The Dark Knight', img: 'https://yt3.ggpht.com/a/AATXAJxHHP_h8bUovc1qC4c07sVXxVbp3gwDEg-iq8gbFQ=s900-c-k-c0x00ffffff-no-rj' },
-    { title: '12 Angry Men', img: 'https://yt3.ggpht.com/a/AATXAJxHHP_h8bUovc1qC4c07sVXxVbp3gwDEg-iq8gbFQ=s900-c-k-c0x00ffffff-no-rj' },
-    { title: "Schindler's List", img: 'https://yt3.ggpht.com/a/AATXAJxHHP_h8bUovc1qC4c07sVXxVbp3gwDEg-iq8gbFQ=s900-c-k-c0x00ffffff-no-rj' },
-    { title: 'Pulp Fiction', img: 'https://yt3.ggpht.com/a/AATXAJxHHP_h8bUovc1qC4c07sVXxVbp3gwDEg-iq8gbFQ=s900-c-k-c0x00ffffff-no-rj' },
-    { title: 'The Lord of the Rings: The Return of the King', img: 'https://yt3.ggpht.com/a/AATXAJxHHP_h8bUovc1qC4c07sVXxVbp3gwDEg-iq8gbFQ=s900-c-k-c0x00ffffff-no-rj' },
-    { title: 'The Good, the Bad and the Ugly', img: 'https://yt3.ggpht.com/a/AATXAJxHHP_h8bUovc1qC4c07sVXxVbp3gwDEg-iq8gbFQ=s900-c-k-c0x00ffffff-no-rj' },
-    { title: 'Fight Club', img: 'https://yt3.ggpht.com/a/AATXAJxHHP_h8bUovc1qC4c07sVXxVbp3gwDEg-iq8gbFQ=s900-c-k-c0x00ffffff-no-rj' }
+    { title: 'The Shawshank Redemption', img: temp },
+    { title: 'The Godfather', img: temp },
+    { title: 'The Godfather: Part II', img: temp },
+    { title: 'The Dark Knight', img: temp },
+    { title: '12 Angry Men', img: temp },
+    { title: "Google", img: temp },
+    { title: 'Pulp Fiction', img: temp },
+    { title: 'The Lord of the Rings: The Return of the King', img: temp },
+    { title: 'The Good, the Bad and the Ugly', img: temp },
+    { title: 'Fight Club', img: temp }
 ]
 
 export default InputSearch

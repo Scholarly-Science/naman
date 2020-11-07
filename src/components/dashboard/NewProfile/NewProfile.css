@@ -529,72 +529,24 @@ input, button, textarea, select, option {
         border-left: 0;
         width: auto;
     }
-}
 
-@media(max-width: 540px) {
-    .newProfile__userBio__info > h4 {
-        font-size: 1.4rem;
-        line-height: normal;
+    .newProfile {
+        overflow-y: hidden;
     }
 
-    .newProfile__userBio__info > h5 {
-        font-size: 1.2rem;
+    .newProfile__left {
+        min-width: auto;
     }
 
-    .newProfile__userBio__info > p {
-        font-size: 1.1rem;
+    .newProfile__experience {
+        background-size: contain;
     }
 
-    .newProfile__experience__bg > h3, .newProfile__resume > div > h3 {
-        font-size: 1.5rem;
+    .newProfile__resume {
+        background-size: 30%;
     }
 
     .newProfile__experience__bg > p, .newProfile__resume > div > p {
-        font-size: 1.1rem;
-        color: #000;
-    }
-
-    .experiences__card > div > div > h2 {
-        font-size: 1.3rem;
-        line-height: normal;
-    }
-
-    .experiences__card > div > div > h3, .experiences__card > div > div > h4, 
-    .experiences__card > div > div > p {
-        font-size: 1.15rem;
-    }
-
-    .experiences__card > div > div > h4 {
-        opacity: .975;
-    }
-
-    .newProfile__resume__selected > div > h3 {
-        font-size: 1.2rem;
-    }
-
-    .newProfile__resume__selected > div > p {
-        font-size: 1.1rem;
-        opacity: .95;
-    }
-
-    .newProfile__role > h2, .newProfile__exp > h2, .newProfile__skill > h2, .newProfile__loc > h2, 
-    .newProfile__right__elsewhere > h1 {
-        font-size: 1.15rem;
-        margin-bottom: 5px;
-    }
-
-    .newProfile__role > p, .newProfile__exp > p, .newProfile__skill > p, .newProfile__loc > p {
-        font-size: 1.1rem;
-    }
-
-    .newProfile__role > div > p, .newProfile__exp > div > p, .newProfile__skill > div > p, 
-    .newProfile__loc > div > p {
-        font-size: 1.05rem;
-        padding: .5rem 1rem;
-        margin-top: .7rem;
-    }
-
-    .newProfile__right__elsewhere > p , .newProfile__right__elsewhere > p > a {
-        font-size: 1.2rem;
+        font-size: .89rem;
     }
 }

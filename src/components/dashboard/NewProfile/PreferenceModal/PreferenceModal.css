@@ -90,7 +90,7 @@
     cursor: pointer;
 }
 
-@media(max-width: 414px) {
+@media(max-width: 540px) {
     .preference__modal {
         width: auto;
         margin: auto;
