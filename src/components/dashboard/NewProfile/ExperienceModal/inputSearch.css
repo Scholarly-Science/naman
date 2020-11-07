@@ -1,4 +1,4 @@
-.inputSearch > input {
+.inputSearch > input, .prefSearch > input {
     font-size: .875rem;
     margin: 0;
     margin-bottom: 13px;
@@ -16,7 +16,7 @@
     transition: all 0.2s ease-in;
 }
 
-.inputSearch > input:focus {
+.inputSearch > input:focus, .prefSearch > input:focus {
     border: 1px solid #000;
 }
 
@@ -50,4 +50,28 @@
 
 .inputSearch > ul > li > img {
     margin-right: 10px;
+}
+
+/* Pref Search */
+.prefSearch {
+    position: relative;
+}
+
+.prefSearch > input {
+    margin-left: .6rem;
+    width: 90%;
+    margin-bottom: 5px;
+}
+
+.prefSearch > span {
+    position: absolute;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 1;
+    width: 90%;
+    margin-left: .6rem;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: .65rem .875rem;
+    border-radius: 5px;
 }

@@ -14,15 +14,23 @@ function InputSearch({ setCompanyName, setCompanyImg }) {
         if(value === '') {
             setSuggestions([]);
         }
-        setCompanyName(input);
-        setCompanyImg(null);
+        
+        // Used to check if input has an image
+        const tf = top100Films.filter(film => film.title.toLowerCase() === value.toLowerCase());
+        if(tf.length > 0) {
+            setCompanyName(tf[0].title);
+            setCompanyImg(tf[0].img);
+        } else {
+            setCompanyName(value);
+            setCompanyImg(null);
+        }
     }
 
     const handleClick = (title, img) => {
-        setSuggestions([]);
         setInput(title);
         setCompanyName(title);
         setCompanyImg(img);
+        setBlur(true);
     }
 
     return (
@@ -30,8 +38,7 @@ function InputSearch({ setCompanyName, setCompanyImg }) {
             <input 
                 type='text' 
                 onChange={handleInput} 
-                onBlur={() => setBlur(true)} 
-                onFocus={() => setBlur(false)} 
+                onFocus={() => setBlur(false)}                 
                 value={input} 
                 placeholder='Example: Google, Facebook...' 
             />

@@ -1,29 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../ExperienceModal/inputSearch.css';
 
-import Autocomplete from '@material-ui/lab/Autocomplete';
 // Remove after rendering from backend
 import { top100Films } from '../ExperienceModal/InputSearch';
 
 function PrefSearch({ placeholder }) {
+    const [input, setInput] = useState('');
+    const [blur, setBlur] = useState(false);
+
+    const handleClick = (input) => {
+        top100Films.title = input;
+        console.log('clicked');
+    }
+
+    console.log(input);
+
     return (
         <div className='prefSearch'>
-            <Autocomplete
-            className='prefSearch__autocomplete'
-            freeSolo
-            disableClearable
-            options={top100Films.map((option) => option.title)}
-            onInputChange={(event, value) => console.log(value)}
-            renderInput={(params) => (
-                <div ref={params.InputProps.ref}>
-                    <input 
-                        value={params.inputProps.value} 
-                        placeholder={placeholder}
-                        type="text" {...params.inputProps} 
-                    />
-                </div>
-            )}
+            <input 
+                type='text' 
+                onChange={(e) => setInput(e.target.value)} 
+                onFocus={() => setBlur(false)} 
+                value={input} 
+                placeholder={placeholder} 
             />
+            {input && !blur && <span onClick={() => handleClick(input)}>{input}</span>}
         </div>
     )
 }
