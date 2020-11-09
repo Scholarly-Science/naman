@@ -12,6 +12,7 @@ function ProfileModal({ openProfile ,setOpenProfile, setUserFirstName, setUserLa
     const [alternatephone, setAlternatePhone] = useState('');
 
     const save = (data) => {
+        console.log(data);
         setUserFirstName(data.firstName);
         setUserLastName(data.lastName);
         setAboutUser(data.about);
@@ -31,6 +32,9 @@ function ProfileModal({ openProfile ,setOpenProfile, setUserFirstName, setUserLa
                         firstName: '',
                         lastName: '',
                         college: '',
+                        major: '',
+                        gradYear: '',
+                        degree: '',
                         email: '',
                         alternateEmail: '',
                         about: ''
@@ -58,8 +62,22 @@ function ProfileModal({ openProfile ,setOpenProfile, setUserFirstName, setUserLa
                         </div>
                         <label>College/University</label>
                         <input type='text' placeholder='Enter Your College/University Name' name='college' onChange={handleChange} value={values.college} />
+                        <label>Major</label>
+                        <input type='text' placeholder='Biochemistry' name='major' onChange={handleChange} value={values.major} />
+                        <label>Grad Year</label>                        
+                        <select onChange={handleChange} name='gradYear'>
+                            <option value=''>Select</option>
+                            <option>A</option>
+                            <option>B</option>
+                        </select>
+                        <label>Degree</label>
+                        <select onChange={handleChange} name='degree'>
+                            <option value=''>Select</option>
+                            <option>C</option>
+                            <option>D</option>
+                        </select>
                         <label>Email Address</label>
-                        <input type='email' placeholder='johnsmith@gmail.com' name='email' onChange={handleChange} value={values.email} />
+                        <input type='text' placeholder='Enter Your College/University Name' name='college' onChange={handleChange} value={values.college} />
                         <label>Alternate Email Address <span>(optional)</span></label>
                         <input type='email' placeholder='johnsmith@gmail.com' name='alternateEmail' onChange={handleChange} value={values.alternateEmail}/>
                         <div className='profile__modal__form__mobile'>

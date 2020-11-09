@@ -38,6 +38,15 @@
     border: 1px solid #000 !important;
 }
 
+.profile__modal__form > form > select {
+    width: 100%;
+    border-radius: .3125rem;
+    border: 1px solid #ddd;
+    height: 2.5rem ;
+    padding: 0 .875rem;
+    margin-bottom: 13px;
+}
+
 .profile__modal__form__mobile {
     display: flex;
     align-items: center;
@@ -58,10 +67,6 @@
 .profile__modal__container .country-list {
     width: 250px !important;
 }
-
-/* .profile__modal__phoneInput:focus + .profile__modal__container {
-    border: 1px solid #000 !important;
-} */
 
 .profile__modal__phoneInput {
     width: 100% !important;

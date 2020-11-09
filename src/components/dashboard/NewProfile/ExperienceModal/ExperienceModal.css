@@ -1,6 +1,7 @@
 .experience__modal, .elsewhere__modal, .profile__modal {
     width: 37.5rem;
     margin: 24px auto;
+    position: fixed !important;
 }
 
 .experience__modal > div.MuiDialog-container.MuiDialog-scrollPaper > .MuiDialog-paperFullScreen, 
@@ -139,7 +140,6 @@
     width: 47.5%;
     font-size: .875rem;
     padding: 10px;
-    color: #788699;
     transition: all 0.2s ease-in;
 }
 

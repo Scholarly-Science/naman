@@ -1,3 +1,10 @@
+*:focus {
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+}
+
 .newProfile {
     background-color: #f8f8f8;
     min-height: 100vh;
@@ -16,7 +23,12 @@ input, button, textarea, select, option {
     font-family: "Inter", sans-serif !important;
 }
 
+.hide {
+    -webkit-tap-highlight-color: transparent;
+}
+
 .btn {
+    -webkit-tap-highlight-color: transparent;
     outline: none;
     border: none;
     padding: 10px 15px;
@@ -52,19 +64,19 @@ input, button, textarea, select, option {
 }
 
 .experiences__card > div > div > h2 {
-    font-weight: 600;
+    font-weight: 500;
     font-size: 1rem;
     line-height: 150%;
     margin: 0;
-    color: #355761;
+    color: #416671;
 }
 
 .experiences__card > div > div > h3, .experiences__card > div > div > h4, .experiences__card > div > div > p {
     font-size: .875rem;
     line-height: 150%;
     margin: 0;
-    font-weight: normal;
-    color: #597780;
+    font-weight: 500;
+    color: #839ba3;
 }
 
 .experiences__card > div > div > h4 {
@@ -295,23 +307,22 @@ input, button, textarea, select, option {
 }
 
 .newProfile__education__info > h4 {
-    margin-top: 0px;
-    color: #4d6369;
-    margin-bottom: 0px;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 1rem;
     line-height: 150%;
+    margin: 0;
 }
 
 .newProfile__education__info > p, .newProfile__education__info > span {
-    margin: 0px;
     font-size: .875rem;
     line-height: 150%;
-    color: #788699
+    margin: 0;
+    color: #555;
+    font-weight: 500;
 }
 
-.newProfile__education__info > p {
-    font-weight: 500;
+.newProfile__education__info > span {
+    color: #788699;
 }
 
 .newProfile__preference {
@@ -336,6 +347,7 @@ input, button, textarea, select, option {
     visibility: visible;
     opacity: 1;
     transition: visibility 0s linear 0s, opacity 300ms;
+    outline: none !important;
 }
 
 .newProfile__role > h2, .newProfile__exp > h2, .newProfile__skill > h2, .newProfile__loc > h2,
@@ -354,6 +366,10 @@ input, button, textarea, select, option {
     cursor: pointer;
     visibility: hidden;
     opacity: 0;
+    outline: none !important;
+    -webkit-tap-highlight-color: transparent;
+    background-color: #fff;
+    border-radius: 50px;
     transition: visibility 0s linear 300ms, opacity 300ms;
 }
 
@@ -391,6 +407,7 @@ input, button, textarea, select, option {
     visibility: visible;
     opacity: 1;
     transition: visibility 0s linear 0s, opacity 300ms;
+    outline: none !important;
 }
 
 .newProfile__right__elsewhere > p {
@@ -489,6 +506,7 @@ input, button, textarea, select, option {
     }
 
     .experiences__card > div > div > h2 {
+        max-width: 88%;
         font-size: 1.1rem;
     }
 
@@ -536,6 +554,19 @@ input, button, textarea, select, option {
 
     .newProfile__left {
         min-width: auto;
+    }
+
+    .newProfile__userBio__info > h4 {
+        font-size: 1.15rem;
+    }
+
+    .newProfile__userBio__info > h5 {
+        font-size: .95rem;
+        margin-top: 0px;
+    }
+
+    .newProfile__userBio__info > p {
+        font-size: .9rem;
     }
 
     .newProfile__experience {
