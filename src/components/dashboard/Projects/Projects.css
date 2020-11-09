@@ -76,10 +76,23 @@
 @media (max-width: 375px) {
     .projects {
         padding: 20px 10px;
+        padding-left: 13px;
     }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 320px) {
+    .projects {
+        padding: 20px 5px;
+        padding-left: 8px;
+    }
+}
+
+@media (max-width: 280px) {
+    .projects {
+        padding: 20px 10px;
+        padding-left: 13px;
+    }
+
     .projects__cards {
         grid-template-columns: repeat(2, 1fr);
     }

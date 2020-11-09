@@ -25,3 +25,21 @@
     font-weight: 600;
     color: #0f0f21;
 }
+
+@media (max-width: 360px) {
+    .projectCard {
+        width: 100px;
+    }
+}
+
+@media (max-width: 320px) {
+    .projectCard {
+        width: 90px;
+    }
+}
+
+@media (max-width: 280px) {
+    .projectCard {
+        width: 110px;
+    }
+}

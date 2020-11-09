@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Assignments.css';
 import AssignmentCards from './AssignmentCards';
 import Pagination from '@material-ui/lab/Pagination';
@@ -41,7 +41,12 @@ function Assignments() {
     const [initial, setInitial] = useState(0);
     const [limit, setLimit] = useState(12);
     // For mobile view
-    const [mobilePage, setMobilePage] = useState(4);
+    const [mobileWidth, setMobileWidth] = useState();
+    const [mobilePage, setMobilePage] = useState(1);
+
+    useEffect(() => {
+        setMobileWidth(window.innerWidth);
+    }, [window.innerWidth])
 
     const handleChange = (event, value) => {
         setLoading(true);
@@ -60,11 +65,11 @@ function Assignments() {
 
     return (
         <div className='assignments'>
-            {window.innerWidth > 540 ? (
+            {mobileWidth > 540 ? (
                 <>       
                 <ul className='assignments__cards'>
-                    {cardsData.slice(initial, limit).map(card => loading ? <AssignmentsCardsSkeleton /> : (
-                        <li><AssignmentCards image={card.img} label={card.text} /></li>
+                    {cardsData.slice(initial, limit).map(card => loading ? <AssignmentsCardsSkeleton key={card.text}/> : (
+                        <li key={card.text}><AssignmentCards image={card.img} label={card.text} /></li>
                     )
                     )}
                 </ul>     
@@ -81,8 +86,12 @@ function Assignments() {
                     dataLength={cardsData.length}
                     next={() => setMobilePage(mobilePage + 1)}
                     hasMore={true}
+                    loader={<h4>Loading...</h4>}
                 >
-                    {cardsData.map(card => <div><AssignmentCards image={card.img} label={card.text} /></div>)}
+                    {cardsData.map(card => 
+                    <div key={card.text}>
+                        <AssignmentCards image={card.img} label={card.text} />
+                    </div>)}
                 </InfiniteScroll>
             )}
         </div>
