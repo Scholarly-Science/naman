@@ -16,11 +16,6 @@ function ExperienceModal({ open, setOpen, years, addExperience }) {
     const [companyName, setCompanyName] = useState('');
     const [companyImg, setCompanyImg] = useState('');
 
-    const cancel = (e) => {
-        e.preventDefault();
-        setOpen(false);
-    }
-
     const save = (data) => {
         data.companyName = companyName;
         data.companyImg = companyImg;
@@ -113,7 +108,6 @@ function ExperienceModal({ open, setOpen, years, addExperience }) {
                                     <TextEditor name='textarea' value={values.textarea}  onChange={handleChange} />
                                 </div>
                                 <div className='experience__button'>
-                                    <button type='button' onClick={cancel}>Cancel</button>
                                     <button disabled={loading} type='submit'>
                                         {loading ? 'Saving...' : 'Save'}
                                     </button>

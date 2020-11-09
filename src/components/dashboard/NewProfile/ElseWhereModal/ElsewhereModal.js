@@ -12,12 +12,7 @@ function ElsewhereModal({
     personalWebsite, linkedinURL, passionProject, githubURL, line, weChat 
 }) {
     const [loading, setLoading] = useState(false);
-
-    const cancel = (e) => {
-        e.preventDefault();
-        setOpenElsewhewe(false);
-    }
-
+    
     const save = (data) => {
         setLoading(true);
         setTimeout(() => {
@@ -73,7 +68,6 @@ function ElsewhereModal({
                         <label>Passion Projects <span>(optional)</span></label>
                         <input type='text' name='passion' onChange={handleChange} value={values.passion} placeholder='Worked on something you loved add a link'/>
                         <div className='elsewhere__button'>
-                            <button type='button' onClick={cancel}>Cancel</button>
                             <button disabled={loading} type='submit'>
                                 {loading ? 'Saving...' : 'Save'}
                             </button>

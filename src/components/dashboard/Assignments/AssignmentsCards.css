@@ -38,3 +38,25 @@
     width: 220px;
     height: 130px;
 }
+
+@media(max-width: 414px) {
+    .assignmentCards {
+        width: 280px;
+        height: 160px;
+    }
+
+    .assignmentCards > h4 {
+        margin-top: 125px;
+    }
+}
+
+@media(max-width: 280px) {
+    .assignmentCards {
+        width: 245px;
+        height: 150px;
+    }
+
+    .assignmentCards > h4 {
+        margin-top: 115px;
+    }
+}

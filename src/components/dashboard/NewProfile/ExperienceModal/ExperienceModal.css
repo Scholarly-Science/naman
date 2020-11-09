@@ -213,5 +213,12 @@
     .profile__modal > div.MuiDialog-container.MuiDialog-scrollPaper > .MuiDialog-paperFullScreen {
         border-radius: 0px;
     }
+}
 
+@media(max-width: 414px) {
+    .experience__modal__form > form > input,
+    .elsewhere__modal__form > form > input,
+    .profile__modal__form > form > input {
+        width: 92.5%;
+    }
 }

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import AssignmentCards from './AssignmentCards';
 import './Assignments.css';
+import AssignmentCards from './AssignmentCards';
 import Pagination from '@material-ui/lab/Pagination';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 import AcctountManager from '../../images/assignment-Cards/cards_Account manager.svg';
 import AndroidDeveloper from '../../images/assignment-Cards/cards_Android developer.svg';
@@ -39,6 +40,8 @@ function Assignments() {
     const [page, setPage] = useState(1);
     const [initial, setInitial] = useState(0);
     const [limit, setLimit] = useState(12);
+    // For mobile view
+    const [mobilePage, setMobilePage] = useState(4);
 
     const handleChange = (event, value) => {
         setLoading(true);
@@ -54,22 +57,34 @@ function Assignments() {
             setInitial((value * 12) - 12);
         }
     };
-    
+
     return (
         <div className='assignments'>
-            <ul className='assignments__cards'>
-                {cardsData.slice(initial, limit).map(card => loading ? <AssignmentsCardsSkeleton /> : (
-                    <li><AssignmentCards image={card.img} label={card.text} /></li>
-                )
-                )}
-            </ul>            
-            <Pagination 
-                className='pagination' 
-                count={Math.ceil(cardsData.length / 12)} 
-                color="primary" 
-                page={page} 
-                onChange={handleChange} 
-            />
+            {window.innerWidth > 540 ? (
+                <>       
+                <ul className='assignments__cards'>
+                    {cardsData.slice(initial, limit).map(card => loading ? <AssignmentsCardsSkeleton /> : (
+                        <li><AssignmentCards image={card.img} label={card.text} /></li>
+                    )
+                    )}
+                </ul>     
+                <Pagination 
+                    className='pagination' 
+                    count={Math.ceil(cardsData.length / 12)} 
+                    color="primary" 
+                    page={page} 
+                    onChange={handleChange} 
+                />
+                </>
+            ) : (
+                <InfiniteScroll
+                    dataLength={cardsData.length}
+                    next={() => setMobilePage(mobilePage + 1)}
+                    hasMore={true}
+                >
+                    {cardsData.map(card => <div><AssignmentCards image={card.img} label={card.text} /></div>)}
+                </InfiniteScroll>
+            )}
         </div>
     )
 }

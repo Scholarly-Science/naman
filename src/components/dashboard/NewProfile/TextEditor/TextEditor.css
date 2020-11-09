@@ -45,3 +45,25 @@
     background-color: #ddd;
     border-radius: 50px;
 }
+
+@media(max-width: 414px) {
+    .editor > .DraftEditor-root {
+        width: 92.5% !important;
+    }
+
+    .editor__buttons {
+        width: 94.2%;
+        margin-left: -1px;
+    }
+}
+
+@media(max-width: 360px) {
+    .editor > .DraftEditor-root {
+        width: 91% !important;
+        height: 220px !important;
+    }
+
+    .editor__buttons {
+        width: 93.1%;
+    }
+}

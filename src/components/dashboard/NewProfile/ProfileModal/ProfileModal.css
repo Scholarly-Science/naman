@@ -113,5 +113,26 @@
     .profile__modal__form__fullname > div > input {
         width: 90% !important;
     }
+}
 
+@media(max-width: 414px) {
+    .profile__modal__form__fullname > div > input {
+        width: 83% !important;
+    }
+
+    .profile__modal__form__mobile {
+        display: block;
+    }
+
+    .profile__modal__form__mobile > div:first-child {
+        margin-right: 0px;
+    }
+
+    .profile__modal__phoneInput {
+        width: 101% !important;
+    }
+
+    .profile__modal__form > form > textarea {
+        width: 93%;
+    }
 }

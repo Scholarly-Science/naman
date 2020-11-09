@@ -91,7 +91,6 @@ function ProfileModal({ openProfile ,setOpenProfile, setUserFirstName, setUserLa
                         <label>About Me <span>(optional)</span></label>
                         <textarea name='about' onChange={handleChange} value={values.about} />
                         <div className='profile__btn'>
-                            <button type='button' onClick={() => setOpenProfile(false)}>Cancel</button>
                             <button type='submit'>Save</button>
                         </div>
                     </form>    
