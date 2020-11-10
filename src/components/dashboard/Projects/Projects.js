@@ -47,4 +47,25 @@ function Projects() {
     )
 }
 
+export const projects = [
+    {image: Drugviu ,title: 'Drugviu'},
+    {image: Chainalysis ,title: 'Chainalysis'},
+    {image: MyScoot ,title: 'MyScoot'},
+    {image: Zenius ,title: 'Zenius'},
+    {image: Discuss ,title: 'Discuss'},
+    {image: Lawyaw ,title: 'Lawyaw'},
+    {image: Nettrons ,title: 'Nettrons'},
+    {image: Pryml ,title: 'Pryml'},
+    {image: Paintzen ,title: 'Paintzen'},
+    {image: Beleaf ,title: 'Beleaf'},
+    {image: Curri ,title: 'Curri'},
+    {image: Boomtv ,title: 'Boomtv'},
+    {image: Papara ,title: 'Papara'},
+    {image: Fhinck ,title: 'Fhinck'},
+    {image: NotCo ,title: 'NotCo'},
+    {image: LaHaus ,title: 'La' },
+    {image: AllureSystems ,title: 'Allure' },
+    {image: Sansan ,title: 'Sansan'},
+]
+
 export default Projects
