@@ -439,6 +439,12 @@ input, button, textarea, select, option {
     color: #25b2aa;
 }
 
+@media(min-width: 1500px) {
+    .newProfile__container {
+        margin: auto;
+    }
+}
+
 @media(max-width: 1024px) {
     .newProfile {
         padding-top: 15px;

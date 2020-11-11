@@ -11,16 +11,17 @@ function NewProjects() {
                 <h2>Projects by Companies</h2>
                 <div className='newProjects__container'>
                     {projects.map(project => (
-                        <div className='newProjects__card'>
+                        <div className='newProjects__card' key={project.title}>
                             <div className='newProjects__Info'>
                                 <img src={project.image} alt={project.title} />
                                 <h4>{project.title}</h4>
                                 <div className='newProjects__truncate'>
+                                    <p>Business Development</p>
                                     <TextTruncate
-                                        line={3}
+                                        line={2}
                                         element="span"
                                         truncateText="…"
-                                        text='CRED is an app, which gives you rewards on timely payments of your credit card payment it is also equipped with the cred to protect nuance of a credit card payment journey – right from due date reminders, spending patterns and other card usage statistics'
+                                        text='CRED is an app, which gives you rewards on timely payments of your credit card payment.'
                                     />
                                 </div>
                             </div>

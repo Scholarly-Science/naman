@@ -22,7 +22,7 @@ function PreferenceModal({ pref, open, close, set, heading, info, choose, placeh
                         </div>
                         <PrefSearch placeholder={placeholder} />
                         <div className='preference__modal__roles__role'>
-                            {pref?.map(pref => <p onClick={() => set(pref)}>{pref}</p>)}
+                            {pref?.map(pref => <p key={pref} onClick={() => set(pref)}>{pref}</p>)}
                         </div>
                     </div>
                 </div>

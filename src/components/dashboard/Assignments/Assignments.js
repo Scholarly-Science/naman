@@ -38,37 +38,86 @@ import AssignmentsCardsSkeleton from './AssignmentsCardsSkeleton';
 function Assignments() {
     const [loading, setLoading] = useState(false);
     const [page, setPage] = useState(1);
-    const [initial, setInitial] = useState(0);
-    const [limit, setLimit] = useState(12);
+    // For 1080px
+    const [initial1080, setInitial1080] = useState(0);
+    const [limit1080, setLimit1080] = useState(24);
+    // For 900px
+    const [initial900, setInitial900] = useState(0);
+    const [limit900, setLimit900] = useState(20);
+    // For 750px
+    const [initial750, setInitial750] = useState(0);
+    const [limit750, setLimit750] = useState(16);
+    // For less than 750px
+    const [initialBasic, setInitialBasic] = useState(0);
+    const [limitBasic, setLimitBasic] = useState(12);
     // For mobile view
-    const [mobileWidth, setMobileWidth] = useState();
     const [mobilePage, setMobilePage] = useState(1);
 
-    useEffect(() => {
-        setMobileWidth(window.innerWidth);
-    }, [window.innerWidth])
-
-    const handleChange = (event, value) => {
+    const handleChange1080 = (event, value) => {
         setLoading(true);
         setTimeout(() => {
             setLoading(false);
         }, 1000);
         setPage(value);
         if(value === 1) {
-            setInitial(0);
-            setLimit(12);
+            setInitial1080(0);
+            setLimit1080(24);
         } else {
-            setLimit(value * 12);
-            setInitial((value * 12) - 12);
+            setLimit1080(value * 24);
+            setInitial1080((value * 24) - 24);
         }
     };
 
-    return (
-        <div className='assignments'>
-            {mobileWidth > 540 ? (
-                <>       
+    const handleChange900 = (event, value) => {
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false);
+        }, 1000);
+        setPage(value);
+        if(value === 1) {
+            setInitial900(0);
+            setLimit900(20);
+        } else {
+            setLimit900(value * 20);
+            setInitial900((value * 20) - 20);
+        }
+    };
+
+    const handleChange750 = (event, value) => {
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false);
+        }, 1000);
+        setPage(value);
+        if(value === 1) {
+            setInitial750(0);
+            setLimit750(16);
+        } else {
+            setLimit750(value * 16);
+            setInitial750((value * 16) - 16);
+        }
+    };
+
+    const handleChangeBasic = (event, value) => {
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false);
+        }, 1000);
+        setPage(value);
+        if(value === 1) {
+            setInitialBasic(0);
+            setLimitBasic(12);
+        } else {
+            setLimitBasic(value * 12);
+            setInitialBasic((value * 12) - 12);
+        }
+    };
+
+    if (window.innerHeight < 750) {
+        return (
+            <div className='assignments'>
                 <ul className='assignments__cards'>
-                    {cardsData.slice(initial, limit).map(card => loading ? <AssignmentsCardsSkeleton key={card.text}/> : (
+                    {cardsData.slice(initialBasic, limitBasic).map(card => loading ? <AssignmentsCardsSkeleton key={card.text}/> : (
                         <li key={card.text}><AssignmentCards image={card.img} label={card.text} /></li>
                     )
                     )}
@@ -78,24 +127,79 @@ function Assignments() {
                     count={Math.ceil(cardsData.length / 12)} 
                     color="primary" 
                     page={page} 
-                    onChange={handleChange} 
+                    onChange={handleChangeBasic} 
                 />
-                </>
-            ) : (
-                <InfiniteScroll
-                    dataLength={cardsData.length}
-                    next={() => setMobilePage(mobilePage + 1)}
-                    hasMore={true}
-                    loader={<h4>Loading...</h4>}
-                >
-                    {cardsData.map(card => 
-                    <div key={card.text}>
-                        <AssignmentCards image={card.img} label={card.text} />
-                    </div>)}
-                </InfiniteScroll>
-            )}
-        </div>
-    )
+            </div> 
+        )
+    } else if(window.innerHeight >= 750 && window.innerHeight < 900) {
+        return (        
+            <div className='assignments'>
+                <ul className='assignments__cards'>
+                    {cardsData.slice(initial750, limit750).map(card => loading ? <AssignmentsCardsSkeleton key={card.text}/> : (
+                        <li key={card.text}><AssignmentCards image={card.img} label={card.text} /></li>
+                    )
+                    )}
+                </ul>     
+                <Pagination 
+                    className='pagination' 
+                    count={Math.ceil(cardsData.length / 16)} 
+                    color="primary" 
+                    page={page} 
+                    onChange={handleChange750} 
+                />
+            </div>
+        )
+    } else if (window.innerHeight >= 900 && window.innerHeight < 1080) {
+        return (        
+            <div className='assignments'>
+                <ul className='assignments__cards'>
+                    {cardsData.slice(initial900, limit900).map(card => loading ? <AssignmentsCardsSkeleton key={card.text}/> : (
+                        <li key={card.text}><AssignmentCards image={card.img} label={card.text} /></li>
+                    )
+                    )}
+                </ul>     
+                <Pagination 
+                    className='pagination' 
+                    count={Math.ceil(cardsData.length / 20)} 
+                    color="primary" 
+                    page={page} 
+                    onChange={handleChange900} 
+                />
+            </div>
+        )
+    } else if (window.innerHeight >= 1080){
+        return (
+            <div className='assignments'>
+                <ul className='assignments__cards'>
+                    {cardsData.slice(initial1080, limit1080).map(card => loading ? <AssignmentsCardsSkeleton key={card.text}/> : (
+                        <li key={card.text}><AssignmentCards image={card.img} label={card.text} /></li>
+                    )
+                    )}
+                </ul>     
+                <Pagination 
+                    className='pagination' 
+                    count={Math.ceil(cardsData.length / 24)} 
+                    color="primary" 
+                    page={page} 
+                    onChange={handleChange1080} 
+                />
+            </div>
+        )
+    }
+    // Mobile view
+    //     <div className='assignments'>
+    //             <InfiniteScroll
+    //                 dataLength={cardsData.length}
+    //                 next={() => setMobilePage(mobilePage + 1)}
+    //                 hasMore={true}
+    //                 loader={<h4>Loading...</h4>}
+    //             >
+    //                 {cardsData.map(card => 
+    //                 <div key={card.text}>
+    //                     <AssignmentCards image={card.img} label={card.text} />
+    //                 </div>)}
+    //             </InfiniteScroll>
+    //     </div>
 }
 
 const cardsData = [

@@ -317,6 +317,18 @@
     white-space: pre-wrap;
     margin-top: 0.5125rem;
   }
+
+  @media (min-height: 650px) {
+    .research__container {
+      min-height: 90vh;
+    }
+  }
+
+  @media (min-height: 650px) {
+    .research__container {
+      min-height: 95vh;
+    }
+  }
   
   @media only screen and (max-width: 768px) {
     .research__popup {

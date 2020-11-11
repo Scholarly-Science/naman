@@ -24,6 +24,30 @@
     margin-top: 1rem;
 }
 
+@media(min-height: 700px ) {
+    .assignments {
+        min-height: 70vh;
+    }
+}
+
+@media(min-height: 800px ) {
+    .assignments {
+        min-height: 75vh;
+    }
+}
+
+@media(min-height: 970px ) {
+    .assignments {
+        min-height: 80vh;
+    }
+}
+
+@media(min-height: 1214px ) {
+    .assignments {
+        min-height: 85vh;
+    }
+}
+
 @media(max-width: 1300px) {
     .assignments {
         min-height: 80vh;
