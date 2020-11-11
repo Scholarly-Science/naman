@@ -24,6 +24,40 @@
     margin-top: 1rem;
 }
 
+/* FOR MOBILE */
+.assignments__mobile {
+    background-color: #f8f8f8;
+    padding: 20px 0px;
+    margin-top: 40px;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+.assignments__mobile__container {
+    padding: 0 15px;
+}
+
+.assignments__mobile__cards > h3 {
+    margin: 0;
+    margin-bottom: .5rem;
+    margin-top: 1.8rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+.assignments__mobile__cardsFlex {
+    display: flex;
+    overflow: hidden;
+    overflow-x: scroll;
+}
+
+.assignments__mobile__cardsFlex .assignmentCards {
+    margin-right: 20px;
+    min-width: 230px;
+    min-height: 140px;
+}
+
 @media(min-height: 700px ) {
     .assignments {
         min-height: 70vh;
@@ -56,6 +90,7 @@
     .assignments__cards {
         grid-template-columns: repeat(3, 1fr);
         margin-left: auto;
+        padding: 0px;
     }
 }
 
@@ -79,22 +114,9 @@
     }
 }
 
-@media(max-width: 540px) {
-    .assignments__cards {
-        grid-template-columns: repeat(2, 1fr);
-        overflow-y: hidden;
-    }
-
-    .infinite-scroll-component {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        place-items: center;
-        grid-row-gap: 20px;
-    }
-}
-
 @media(max-width: 414px) {
-    .infinite-scroll-component {
-        grid-template-columns: 1fr;
+    .assignments__mobile__cardsFlex .assignmentCards{
+        min-width: 280px;
+        min-height: 160px;
     }
 }

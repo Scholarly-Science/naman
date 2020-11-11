@@ -39,6 +39,12 @@
     height: 130px;
 }
 
+@media(max-width: 786px) {
+    .assignmentCards:hover {
+        transform: scale(1);
+    }
+}
+
 @media(max-width: 414px) {
     .assignmentCards {
         width: 280px;

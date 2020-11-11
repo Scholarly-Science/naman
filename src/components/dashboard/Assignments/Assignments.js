@@ -51,7 +51,6 @@ function Assignments() {
     const [initialBasic, setInitialBasic] = useState(0);
     const [limitBasic, setLimitBasic] = useState(12);
     // For mobile view
-    const [mobilePage, setMobilePage] = useState(1);
 
     const handleChange1080 = (event, value) => {
         setLoading(true);
@@ -113,7 +112,45 @@ function Assignments() {
         }
     };
 
-    if (window.innerHeight < 750) {
+    if(window.innerWidth <= 540) {
+        return (
+            <div className='assignments__mobile'>
+                <div className='assignments__mobile__container'>
+                    <div className='assignments__mobile__cards'>
+                        <h3 style={{marginTop: 0}}>Accounting and Finance</h3>
+                        <div className='assignments__mobile__cardsFlex'>
+                            <AssignmentCards image={AcctountManager} label='Account Manager' />
+                            <AssignmentCards image={ModernAccounting} label='Modern Accounting' />
+                            <AssignmentCards image={AcctountManager} label='Finance Manager' />                    
+                        </div>
+                    </div>
+                    <div className='assignments__mobile__cards'>
+                        <h3>User Experience</h3>
+                        <div className='assignments__mobile__cardsFlex'>
+                            <AssignmentCards image={DigitalProductDesigner} label='Digital Product Designer' />
+                            <AssignmentCards image={UI} label='UI Designer' />
+                            <AssignmentCards image={UX} label='UX Researcher' />                    
+                        </div>
+                    </div>
+                    <div className='assignments__mobile__cards'>
+                        <h3>Data Science and Machine Learning</h3>
+                        <div className='assignments__mobile__cardsFlex'>
+                            <AssignmentCards image={DataScientist} label='Data Scientist' />
+                            <AssignmentCards image={DataAnalyst} label='Data Analyst' />
+                        </div>
+                    </div>
+                    <div className='assignments__mobile__cards'>
+                        <h3>Language Proficiency</h3>
+                        <div className='assignments__mobile__cardsFlex'>
+                            <AssignmentCards image={English} label='Proficiency in English' />
+                            <AssignmentCards image={French} label='Proficiency in French  ' />
+                            <AssignmentCards image={CommunicationSkills} label='Communication Skills' />                    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    } else if (window.innerHeight < 750) {
         return (
             <div className='assignments'>
                 <ul className='assignments__cards'>
@@ -186,20 +223,6 @@ function Assignments() {
             </div>
         )
     }
-    // Mobile view
-    //     <div className='assignments'>
-    //             <InfiniteScroll
-    //                 dataLength={cardsData.length}
-    //                 next={() => setMobilePage(mobilePage + 1)}
-    //                 hasMore={true}
-    //                 loader={<h4>Loading...</h4>}
-    //             >
-    //                 {cardsData.map(card => 
-    //                 <div key={card.text}>
-    //                     <AssignmentCards image={card.img} label={card.text} />
-    //                 </div>)}
-    //             </InfiniteScroll>
-    //     </div>
 }
 
 const cardsData = [
