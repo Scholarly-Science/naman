@@ -150,78 +150,80 @@ function Assignments() {
                 </div>
             </div>
         )
-    } else if (window.innerHeight < 750) {
-        return (
-            <div className='assignments'>
-                <ul className='assignments__cards'>
-                    {cardsData.slice(initialBasic, limitBasic).map(card => loading ? <AssignmentsCardsSkeleton key={card.text}/> : (
-                        <li key={card.text}><AssignmentCards image={card.img} label={card.text} /></li>
-                    )
-                    )}
-                </ul>     
-                <Pagination 
-                    className='pagination' 
-                    count={Math.ceil(cardsData.length / 12)} 
-                    color="primary" 
-                    page={page} 
-                    onChange={handleChangeBasic} 
-                />
-            </div> 
-        )
-    } else if(window.innerHeight >= 750 && window.innerHeight < 900) {
-        return (        
-            <div className='assignments'>
-                <ul className='assignments__cards'>
-                    {cardsData.slice(initial750, limit750).map(card => loading ? <AssignmentsCardsSkeleton key={card.text}/> : (
-                        <li key={card.text}><AssignmentCards image={card.img} label={card.text} /></li>
-                    )
-                    )}
-                </ul>     
-                <Pagination 
-                    className='pagination' 
-                    count={Math.ceil(cardsData.length / 16)} 
-                    color="primary" 
-                    page={page} 
-                    onChange={handleChange750} 
-                />
-            </div>
-        )
-    } else if (window.innerHeight >= 900 && window.innerHeight < 1080) {
-        return (        
-            <div className='assignments'>
-                <ul className='assignments__cards'>
-                    {cardsData.slice(initial900, limit900).map(card => loading ? <AssignmentsCardsSkeleton key={card.text}/> : (
-                        <li key={card.text}><AssignmentCards image={card.img} label={card.text} /></li>
-                    )
-                    )}
-                </ul>     
-                <Pagination 
-                    className='pagination' 
-                    count={Math.ceil(cardsData.length / 20)} 
-                    color="primary" 
-                    page={page} 
-                    onChange={handleChange900} 
-                />
-            </div>
-        )
-    } else if (window.innerHeight >= 1080){
-        return (
-            <div className='assignments'>
-                <ul className='assignments__cards'>
-                    {cardsData.slice(initial1080, limit1080).map(card => loading ? <AssignmentsCardsSkeleton key={card.text}/> : (
-                        <li key={card.text}><AssignmentCards image={card.img} label={card.text} /></li>
-                    )
-                    )}
-                </ul>     
-                <Pagination 
-                    className='pagination' 
-                    count={Math.ceil(cardsData.length / 24)} 
-                    color="primary" 
-                    page={page} 
-                    onChange={handleChange1080} 
-                />
-            </div>
-        )
+    } else {
+        if (window.innerHeight < 750) {
+            return (
+                <div className='assignments'>
+                    <ul className='assignments__cards'>
+                        {cardsData.slice(initialBasic, limitBasic).map(card => loading ? <AssignmentsCardsSkeleton key={card.text}/> : (
+                            <li key={card.text}><AssignmentCards image={card.img} label={card.text} /></li>
+                        )
+                        )}
+                    </ul>     
+                    <Pagination 
+                        className='pagination' 
+                        count={Math.ceil(cardsData.length / 12)} 
+                        color="primary" 
+                        page={page} 
+                        onChange={handleChangeBasic} 
+                    />
+                </div> 
+            )
+        } else if(window.innerHeight >= 750 && window.innerHeight < 900) {
+            return (        
+                <div className='assignments'>
+                    <ul className='assignments__cards'>
+                        {cardsData.slice(initial750, limit750).map(card => loading ? <AssignmentsCardsSkeleton key={card.text}/> : (
+                            <li key={card.text}><AssignmentCards image={card.img} label={card.text} /></li>
+                        )
+                        )}
+                    </ul>     
+                    <Pagination 
+                        className='pagination' 
+                        count={Math.ceil(cardsData.length / 16)} 
+                        color="primary" 
+                        page={page} 
+                        onChange={handleChange750} 
+                    />
+                </div>
+            )
+        } else if (window.innerHeight >= 900 && window.innerHeight < 1080) {
+            return (        
+                <div className='assignments'>
+                    <ul className='assignments__cards'>
+                        {cardsData.slice(initial900, limit900).map(card => loading ? <AssignmentsCardsSkeleton key={card.text}/> : (
+                            <li key={card.text}><AssignmentCards image={card.img} label={card.text} /></li>
+                        )
+                        )}
+                    </ul>     
+                    <Pagination 
+                        className='pagination' 
+                        count={Math.ceil(cardsData.length / 20)} 
+                        color="primary" 
+                        page={page} 
+                        onChange={handleChange900} 
+                    />
+                </div>
+            )
+        } else if (window.innerHeight >= 1080){
+            return (
+                <div className='assignments'>
+                    <ul className='assignments__cards'>
+                        {cardsData.slice(initial1080, limit1080).map(card => loading ? <AssignmentsCardsSkeleton key={card.text}/> : (
+                            <li key={card.text}><AssignmentCards image={card.img} label={card.text} /></li>
+                        )
+                        )}
+                    </ul>     
+                    <Pagination 
+                        className='pagination' 
+                        count={Math.ceil(cardsData.length / 24)} 
+                        color="primary" 
+                        page={page} 
+                        onChange={handleChange1080} 
+                    />
+                </div>
+            )
+        }
     }
 }
 

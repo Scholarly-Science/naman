@@ -33,9 +33,10 @@ function JobOpenings() {
         <div className="card__section">
           {data?.map((item) =>
             loading ? (
-              <JobOpeningsSkeleton />
+              <JobOpeningsSkeleton key={item.id} />
             ) : (
-              <div
+              <div 
+                key={item.id}
                 className="jobOpenings__card"
                 onClick={() => handleClick(item.id)}
               >

@@ -24,9 +24,9 @@ function Events() {
         <div className="card__section">
           {eventData?.map((item) =>
             loading ? (
-              <EventSkeleton />
+              <EventSkeleton key={item.companyName}/>
             ) : (
-              <div className="events__card">
+              <div className="events__card" key={item.companyName}>
                 <div className="events__info">
                   <img src={item.banner} alt="banner" />
                   <div className="events__infoContainer">
