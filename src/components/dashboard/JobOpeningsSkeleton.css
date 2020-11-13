@@ -5,3 +5,9 @@
 .JobOpeningsSkeleton_info {
     margin-bottom: 5px;
 }
+
+@media (max-width: 414px) {
+    .JobOpeningsSkeleton_logo {
+        margin-bottom: 7px;
+    }
+}

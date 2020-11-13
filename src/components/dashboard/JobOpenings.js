@@ -32,32 +32,30 @@ function JobOpenings() {
 
         <div className="card__section">
           {data?.map((item) =>
-            loading ? (
-              <JobOpeningsSkeleton key={item.id} />
-            ) : (
               <div 
                 key={item.id}
                 className="jobOpenings__card"
                 onClick={() => handleClick(item.id)}
               >
-                <div className="jobOpenings__info">
-                  <div
-                    className="jobOpenings__image"
-                    style={{
-                      backgroundImage: `url(${item.src})`,
-                    }}
-                  ></div>
+                {loading ? <JobOpeningsSkeleton/> : (
+                  <div className="jobOpenings__info">
+                    <div
+                      className="jobOpenings__image"
+                      style={{
+                        backgroundImage: `url(${item.src})`,
+                      }}
+                    ></div>
 
-                  <div className="jobOpenings__infoTitle">{item.title}</div>
-                  <div className="type">
-                    {item.type} <span>• {item.type_span}</span>{" "}
+                    <div className="jobOpenings__infoTitle">{item.title}</div>
+                    <div className="type">
+                      {item.type} <span>• {item.type_span}</span>{" "}
+                    </div>
+
+                    <div className="jobOpenings__location"></div>
                   </div>
-
-                  <div className="jobOpenings__location"></div>
-                </div>
+                )}
               </div>
-            )
-          )}
+            )}
         </div>
         <div className="loadmore">That's all for the day!</div>
       </div>

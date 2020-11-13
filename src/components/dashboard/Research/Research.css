@@ -21,6 +21,7 @@
     grid-template-columns: repeat(3, 1fr);
     box-sizing: border-box;
     grid-gap: 15px 12px;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .research__card {
@@ -128,6 +129,17 @@
     display: block;
     position: fixed;
     overflow-y: scroll;
+  }
+
+  .research__popup::-webkit-scrollbar, .research__popup__wrap::-webkit-scrollbar, 
+  .research__popupLeftContainer::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge add Firefox */
+  .research__popup, .research__popup__wrap, .research__popupLeftContainer {
+    -ms-overflow-style: none;
+    scrollbar-width: none; /* Firefox */
   }
   
   .research__popup__wrap {
@@ -318,6 +330,12 @@
     margin-top: 0.5125rem;
   }
 
+  @media (max-width: 1024px) {
+    .research__popup__contentBanner {
+      background-size: cover !important;
+    }
+  }
+
   @media (min-height: 650px) {
     .research__container {
       min-height: 90vh;
@@ -335,6 +353,7 @@
       min-height: 120vh;
       overflow: hidden;
     }
+
     .research__popup__wrap {
       width: 100%;
       margin-top: 0;
@@ -344,6 +363,10 @@
       min-height: 120vh;
       overflow: hidden;
       margin-left: 0px;
+    }
+
+    .research__popup__content {
+      height: 100vh;
     }
   
     .research__popup__contentBanner {

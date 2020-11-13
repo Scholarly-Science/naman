@@ -1,34 +1,32 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './NewProject.css';
-import TextTruncate from 'react-text-truncate';
-import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import { projects } from '../Projects/Projects';
+import NewProjectsSkeleton from './NewProjectsSkeleton';
+import QueryBuilderIcon from '@material-ui/icons/QueryBuilder';
 
 function NewProjects() {
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false);
+        }, 1500);    
+    }, [])
+
     return (
         <div className='newProjects'>
-            <section className='newProjects__section'>
-                <h2>Projects by Companies</h2>
+            <section className='newProjects__section'>                
                 <div className='newProjects__container'>
                     {projects.map(project => (
                         <div className='newProjects__card' key={project.title}>
-                            <div className='newProjects__Info'>
-                                <img src={project.image} alt={project.title} />
-                                <h4>{project.title}</h4>
-                                <div className='newProjects__truncate'>
-                                    <p>Business Development</p>
-                                    <TextTruncate
-                                        line={2}
-                                        element="span"
-                                        truncateText="…"
-                                        text='CRED is an app, which gives you rewards on timely payments of your credit card payment.'
-                                    />
+                            {loading ? <NewProjectsSkeleton /> : (
+                                <div className='newProjects__Info'>
+                                    <span className='newProjects__Info__hide'><QueryBuilderIcon />Be an early applicant</span>
+                                    <img src={project.image} alt={project.title} />
+                                    <h4>{project.title}</h4>                                
                                 </div>
-                            </div>
-                            <div className='newProjects__buttons'>
-                                <button className='newProjects__buttons__save'><BookmarkBorderIcon /> Save</button>
-                                <button className='newProjects__buttons__load'>Load More</button>
-                            </div>
+                            )}
                         </div>                    
                     ))}
                 </div>

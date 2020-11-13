@@ -34,7 +34,7 @@
 }
 
 .assignments__mobile__container {
-    padding: 0 15px;
+    padding: 0 10px;
 }
 
 .assignments__mobile__cards > h3 {
@@ -44,6 +44,9 @@
     font-size: 1.1rem;
     font-weight: 600;
     margin-left: 5px;
+}
+
+.assignments__mobile__cards > h3 {
 }
 
 .assignments__mobile__cardsFlex {

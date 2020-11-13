@@ -48,7 +48,7 @@ function Research() {
         root: {
           flexGrow: 1,
           //  backgroundColor: theme.palette.background.paper,
-          backgroundColor: "#ededed",
+          backgroundColor: "#ededed",          
        },
       }));
 
@@ -86,7 +86,7 @@ function Research() {
                      position="static"
                   >
                     <div className="research__popup__contentBanner research__popupHeaderFixed" 
-                    style={{backgroundImage: `url(${modalInfo?.modalHeader__Img})`}}>
+                    style={{background: `url(${modalInfo?.modalHeader__Img}) no-repeat left`}}>
                       <CancelIcon
                         className="popup__closeBtn"
                         onClick={removePopup}
