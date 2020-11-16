@@ -6,7 +6,7 @@ function NewProjectsSkeleton() {
     return (
         <div className='newProjects__card__skeleton'>
             <Skeleton circle={true} width='70px' height='70px' style={{marginBottom: '15px'}} />
-            <Skeleton width='80%' height='20px' />
+            <Skeleton width='80%' height='20px' className='newProjects__card__skeleton__margin' />
         </div>
     )
 }
