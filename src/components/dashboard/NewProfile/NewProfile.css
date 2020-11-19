@@ -439,7 +439,13 @@ input, button, textarea, select, option {
     color: #25b2aa;
 }
 
-@media(min-width: 1500px) {
+@media(min-width: 1370px) {
+    .newProfile__container {
+        margin: auto;
+    }
+}
+
+@media(max-width: 1300px) {
     .newProfile__container {
         margin: auto;
     }
@@ -466,7 +472,7 @@ input, button, textarea, select, option {
     }
 }
 
-@media(max-width: 768px) {
+@media(max-width: 1000px) {
     .newProfile__container {
         display: block;
     }

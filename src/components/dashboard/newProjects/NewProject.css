@@ -112,7 +112,7 @@
     }
 }
 
-@media (max-width: 540px) {
+@media (max-width: 768px) {
     .newProjects__container {
         grid-template-columns: repeat(2, 1fr);
     }

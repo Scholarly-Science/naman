@@ -77,6 +77,12 @@
     transition: all 125ms cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
+@media only screen and (max-width: 900px) {
+  .research__cards{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 @media (max-width: 768px) {
     .research__btn {
         width: 100%;
@@ -347,7 +353,7 @@
       min-height: 95vh;
     }
   }
-  
+
   @media only screen and (max-width: 768px) {
     .research__popup {
       min-height: 120vh;

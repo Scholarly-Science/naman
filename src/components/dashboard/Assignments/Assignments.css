@@ -97,23 +97,33 @@
     }
 }
 
-@media(max-width: 768px) {
+@media(max-width: 900px) {
+    .assignments__cards {
+        width: 95%;
+    }
+}
+
+@media(max-width: 780px) {
     .assignments__cards {
         width: 100%;
     }
+}
 
+@media(max-width: 768px) {
     .assignments {
         min-height: 75vh;
+    }
+}
+
+@media(max-width: 720px) {
+    .assignments__cards {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media(max-width: 600px) {
     .assignments {
         margin-bottom: -10px;
-    }
-
-    .assignments__cards {
-        grid-template-columns: repeat(2, 1fr);
     }
 }
 
