@@ -128,7 +128,7 @@ input, button, textarea, select, option {
 
 .newProfile__right {
     margin-left: 20px;
-    max-width: 309px;
+    width: 100%;
 }
 
 .newProfile__right__elsewhere {
