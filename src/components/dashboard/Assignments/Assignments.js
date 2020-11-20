@@ -16,7 +16,7 @@ function Assignments() {
     const [limit900, setLimit900] = useState(20);
     // For 750px
     const [initial750, setInitial750] = useState(0);
-    const [limit750, setLimit750] = useState(16);
+    const [limit750, setLimit750] = useState(15);
     // For less than 750px
     const [initialBasic, setInitialBasic] = useState(0);
     const [limitBasic, setLimitBasic] = useState(12);
@@ -60,10 +60,10 @@ function Assignments() {
         setPage(value);
         if(value === 1) {
             setInitial750(0);
-            setLimit750(16);
+            setLimit750(15);
         } else {
-            setLimit750(value * 16);
-            setInitial750((value * 16) - 16);
+            setLimit750(value * 15);
+            setInitial750((value * 15) - 15);
         }
     };
 
@@ -82,7 +82,7 @@ function Assignments() {
         }
     };
 
-    if(window.innerWidth <= 540) {
+    if(window.innerWidth <= 600) {
         return (
             <div className='assignments__mobile'>
                 <div className='assignments__mobile__container'>
@@ -127,7 +127,7 @@ function Assignments() {
                     </ul>     
                     <Pagination 
                         className='pagination' 
-                        count={Math.ceil(cardsData.length / 16)} 
+                        count={Math.ceil(cardsData.length / 15)} 
                         color="primary" 
                         page={page} 
                         onChange={handleChange750} 

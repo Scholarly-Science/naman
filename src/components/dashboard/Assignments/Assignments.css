@@ -91,7 +91,8 @@
     }
 
     .assignments__cards {
-        grid-template-columns: repeat(3, 1fr);
+        /* grid-template-columns: repeat(3, 1fr); */
+        width: 95%;
         margin-left: auto;
         padding: 0px;
     }
@@ -99,6 +100,7 @@
 
 @media(max-width: 900px) {
     .assignments__cards {
+        grid-template-columns: repeat(3, 1fr);
         width: 95%;
     }
 }
