@@ -60,11 +60,11 @@ function ExperienceModal({ open, setOpen, years, addExperience }) {
                                 <label>Company / Organization Name</label>
                                 <InputSearch setCompanyName={setCompanyName} setCompanyImg={setCompanyImg} />
                                 <label>Website</label>
-                                <input type='text' name='website' onChange={handleChange} value={values.website} placeholder='https://www.scholarly-science.com' />
+                                <input type='text' name='website' onChange={handleChange} value={values.website} placeholder='https://www.facebook.com' />
                                 <label>Title</label>
-                                <input type='text' name='title' onChange={handleChange} value={values.title} placeholder='Example: Software Engineer' />
+                                <input type='text' name='title' onChange={handleChange} value={values.title} placeholder='Software Engineer' />
                                 <label>Location {checked && <span>(optional)</span>} </label>
-                                <input type='text' name='location' onChange={handleChange} value={values.location} placeholder='Add a location' disabled={checked}/>
+                                <input type='text' name='location' onChange={handleChange} value={values.location} placeholder='New York, NY' disabled={checked}/>
                                 <div className='experience__modal__form__checkbox'>
                                     <Checkbox 
                                         color='primary'

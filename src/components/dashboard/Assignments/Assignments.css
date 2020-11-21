@@ -63,13 +63,13 @@
 
 @media(min-height: 700px ) {
     .assignments {
-        min-height: 70vh;
+        min-height: 75vh;
     }
 }
 
-@media(min-height: 800px ) {
+@media(max-height: 800px) and (min-height: 701px) {
     .assignments {
-        min-height: 75vh;
+        min-height: 70vh;
     }
 }
 
@@ -86,12 +86,11 @@
 }
 
 @media(max-width: 1300px) {
-    .assignments {
+    /* .assignments {
         min-height: 80vh;
-    }
+    } */
 
     .assignments__cards {
-        /* grid-template-columns: repeat(3, 1fr); */
         width: 95%;
         margin-left: auto;
         padding: 0px;

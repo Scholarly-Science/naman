@@ -43,7 +43,7 @@ function InputSearch({ setCompanyName, setCompanyImg }) {
                 onChange={handleInput} 
                 onFocus={() => setBlur(false)}                 
                 value={input} 
-                placeholder='Example: Google, Facebook...' 
+                placeholder='Facebook' 
             />
             { suggestions.length > 0 && !blur &&
                 <ul>

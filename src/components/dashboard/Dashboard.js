@@ -26,6 +26,7 @@ import Research from "./Research/Research";
 import Projects from "./Projects/Projects";
 import NewProfile from "./NewProfile/NewProfile";
 import NewProjects from "./newProjects/NewProjects";
+import NewDashboard from "./NewDashboard/NewDashboard";
 
 export const Dashboard = () => {
   const [isToggle, setIsToggle] = useState(false);
@@ -78,6 +79,7 @@ export const Dashboard = () => {
             <Route exact path="/dashboard/projects" component={Projects} />
             <Route exact path="/dashboard/new-projects" component={NewProjects} />
             <Route exact path="/dashboard/newProfile" component={NewProfile} />
+            <Route exact path="/dashboard/newDashboard" component={NewDashboard} />
             <Route
               exact
               path="/dashboard/description"

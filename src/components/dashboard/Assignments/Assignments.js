@@ -16,7 +16,7 @@ function Assignments() {
     const [limit900, setLimit900] = useState(20);
     // For 750px
     const [initial750, setInitial750] = useState(0);
-    const [limit750, setLimit750] = useState(15);
+    const [limit750, setLimit750] = useState(16);
     // For less than 750px
     const [initialBasic, setInitialBasic] = useState(0);
     const [limitBasic, setLimitBasic] = useState(12);
@@ -60,10 +60,10 @@ function Assignments() {
         setPage(value);
         if(value === 1) {
             setInitial750(0);
-            setLimit750(15);
+            setLimit750(16);
         } else {
-            setLimit750(value * 15);
-            setInitial750((value * 15) - 15);
+            setLimit750(value * 16);
+            setInitial750((value * 16) - 16);
         }
     };
 
@@ -98,7 +98,7 @@ function Assignments() {
             </div>
         )
     } else {
-        if (window.innerHeight < 750) {
+        if (window.innerHeight < 700) {
             return (
                 <div className='assignments'>
                     <ul className='assignments__cards'>
@@ -116,7 +116,7 @@ function Assignments() {
                     />
                 </div> 
             )
-        } else if(window.innerHeight >= 750 && window.innerHeight < 900) {
+        } else if(window.innerHeight >= 700 && window.innerHeight < 900) {
             return (        
                 <div className='assignments'>
                     <ul className='assignments__cards'>
@@ -127,7 +127,7 @@ function Assignments() {
                     </ul>     
                     <Pagination 
                         className='pagination' 
-                        count={Math.ceil(cardsData.length / 15)} 
+                        count={Math.ceil(cardsData.length / 16)} 
                         color="primary" 
                         page={page} 
                         onChange={handleChange750} 

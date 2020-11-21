@@ -1,0 +1,184 @@
+.newDashboard {
+    margin: auto;
+    margin-top: 2rem;
+    max-width: 412px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.newDashboard__container {
+    padding: .875rem;
+}
+
+.newDashboard__interview__info {
+    margin-bottom: 1rem;
+}
+
+.newDashboard__interview__info > h2{
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 600;
+    line-height: 130%;
+}
+
+.newDashboard__interview__months {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    margin-bottom: 10px;
+    -webkit-tap-highlight-color: transparent;
+
+    /* Hide scrollbar for IE, Edge and Firefox */    
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.newDashboard__interview__months::-webkit-scrollbar, .newDashboard__interview__dates::-webkit-scrollbar {
+    display: none;
+}
+
+.newDashboard__interview__months > p {
+    margin: 0;
+    margin-right: 4rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #555;
+    opacity: .5;
+    cursor: pointer;
+}
+
+.newDashboard__interview__months > p:first-child {
+    color: #000;
+    opacity: 1;
+}
+
+.newDashboard__interview__dates {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    margin-bottom: 7px;
+    -webkit-tap-highlight-color: transparent;
+    
+    /* Hide scrollbar for IE, Edge and Firefox */    
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    transition: all 5s ease-in;
+}
+
+.newDashboard__interview__dates > div {
+    min-width: 30px;
+    max-width: 30px;
+    margin-right: .5rem;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding: .7rem .5rem;
+    cursor: pointer;
+    text-align: center;
+    overflow: hidden;
+    transition: all 0.2s ease-in;
+}
+
+/* .newDashboard__interview__dates > div:hover {
+    background-color: #ff9169;
+    border: 1px solid #ff9169;
+}
+
+.newDashboard__interview__dates > div:hover span, .newDashboard__interview__dates > div:hover p  {
+    color: #fff;
+} */
+
+.newDashboard__interview__dates > div > span {
+    font-size: .875rem;
+    font-weight: 500;
+    color: #ccc;
+    transition: color 0.2s ease-in;
+}
+
+.newDashboard__interview__dates > div > p {
+    margin: 2px 0;
+    color: #3d3e67;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: color 0.2s ease-in;
+}
+
+/* WHEN the date is picked */
+.selected {
+    background-color: #ff9169;
+    border: 1px solid #ff9169 !important;
+}
+
+.selected > p, .selected > span {
+    color: #fff !important; 
+}
+
+.newDashboard__interview__dots {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end; 
+    margin-bottom: 10px;   
+}
+
+.newDashboard__interview__dots > div{
+    height: 10px;
+    width: 10px;
+    background-color: #3d3e67;
+    border-radius: 50px;
+    color: #3d3e67;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: all 0.2s ease-in;
+}
+
+.newDashboard__interview__dots > div:first-child {
+    margin-right: 7px;
+}
+
+.clicked__dot {
+    background-color: #ff9169 !important;
+}
+
+.newDashboard__interview__time {
+    display: flex;
+}
+
+.newDashboard__interview__time > div {
+    border: 2px solid #633632;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    max-width: max-content;
+    margin-right: 10px;
+}
+
+.newDashboard__interview__time > div > input{
+    width: 1.1rem;
+    padding: .2rem .4rem;
+    text-align: center;
+    border-radius: 10px;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    font-weight: 500;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.newDashboard__interview__time > div > input:first-child{
+    margin-right: .3rem;
+}
+
+.newDashboard__interview__time > div > input:last-child{
+    margin-left: .3rem;
+}
