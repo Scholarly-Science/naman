@@ -77,22 +77,22 @@ function ExperienceModal({ open, setOpen, years, addExperience }) {
                                 <div>
                                     <select className='select__month mr' name='fromMonth' onChange={handleChange}>
                                         <option value="">Select...</option>
-                                        {months?.map(month => <option value={month}>{month}</option>)}
+                                        {months?.map(month => <option key={month} value={month}>{month}</option>)}
                                     </select>
                                     <select className='select__month' name='fromYear' onChange={handleChange}>
                                         <option value="">Select...</option>
-                                        {years?.map(year => <option value={year} >{year}</option>)}
+                                        {years?.map(year => <option key={year} value={year} >{year}</option>)}
                                     </select>
                                 </div>
                                 {!checkedTo && <label>To</label>}
                                 <div>
                                     <select className='select__month mr' name='toMonth' onChange={handleChange} disabled={checkedTo}>
                                         <option value="">Select...</option>
-                                        {months?.map(month => <option value={month}>{month}</option>)}
+                                        {months?.map(month => <option key={month} value={month}>{month}</option>)}
                                     </select>
                                     <select className='select__month' name='toYear' onChange={handleChange}  disabled={checkedTo}>
                                         <option value="">Select...</option>
-                                        {years?.map(year => <option value={year} >{year}</option>)}
+                                        {years?.map(year => <option key={year} value={year} >{year}</option>)}
                                     </select>
                                 </div>
                                 <div className='experience__modal__form__checkbox'>

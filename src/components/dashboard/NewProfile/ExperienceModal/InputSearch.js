@@ -48,7 +48,7 @@ function InputSearch({ setCompanyName, setCompanyImg }) {
             { suggestions.length > 0 && !blur &&
                 <ul>
                     {suggestions?.map(films => (
-                        <li onClick={() => handleClick(films.title, films.img)}> 
+                        <li key={films.title} onClick={() => handleClick(films.title, films.img)}> 
                             <img src={films.img} alt='imggg' style={{width: '40px'}} />
                             {films.title} 
                         </li>

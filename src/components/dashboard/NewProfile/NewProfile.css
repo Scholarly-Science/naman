@@ -674,7 +674,7 @@ input, button, textarea, select, option {
 
     .experiences__card > div > div > h2 {
         font-weight: 600;
-        font-size: 1.2rem;
+        font-size: 1.05rem;
         color: #444;
         max-width: 100%;
     }
@@ -682,7 +682,7 @@ input, button, textarea, select, option {
     .experiences__card > div > div > h3, .experiences__card > div > div > h4,
     .experiences__card > div > div > p {
         font-weight: 500;
-        font-size: 1.1rem;
+        font-size: .95rem;
     }
 
     .experiences__card > div > div > h4 {

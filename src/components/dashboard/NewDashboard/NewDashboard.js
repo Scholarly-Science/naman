@@ -11,7 +11,11 @@ function NewDashboard() {
     }, [])
 
     const updateDate = (index) => {
-        console.log(index)
+        // const startMonth = dMonths.slice(index, dMonths.length);
+        // const addMonths = dMonths.slice(0, index);
+
+        // const newMonthArray = [...startMonth, ...addMonths];
+        // setDMonths(newMonthArray)
     }
 
     const dateSelected = (date) => {
