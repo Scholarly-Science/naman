@@ -63,6 +63,10 @@ input, button, textarea, select, option {
     margin-right: 1.25rem;
 }
 
+.experiences__card > div > div {
+    margin-top: -5px;
+}
+
 .experiences__card > div > div > h2 {
     font-weight: 500;
     font-size: 1rem;
@@ -151,9 +155,14 @@ input, button, textarea, select, option {
     width: 589px;
 }
 
+
 .newProfile__userBio > div{
     display: flex;
     align-items: flex-start;
+}
+
+.newProfile__userBio__image__bg {
+    display: none !important;
 }
 
 .newProfile__userBio .MuiAvatar-root {
@@ -492,6 +501,10 @@ input, button, textarea, select, option {
         margin-top: 15px;
     }
 
+    .experiences__card > div > div {
+        width: 82%;
+    }
+
     .newProfile__userBio__info > h4 {
         font-size: 1.2rem;
         margin-top: 0;
@@ -567,10 +580,15 @@ input, button, textarea, select, option {
 
     .newProfile {
         overflow-y: hidden;
+        padding-top: 0px;
     }
 
     .newProfile__left {
         min-width: auto;
+    }
+
+    .newProfile__userBio {
+        border-top: 0px;
     }
 
     .newProfile__userBio__info > h4 {
@@ -599,17 +617,102 @@ input, button, textarea, select, option {
     }
 }
 
+@media(max-width: 450px) {
+    .newProfile__userBio {
+        padding: 1.5rem;
+        padding-top: 0;
+        position: relative;
+    }
+
+    .newProfile__userBio > div {
+        display: block;
+    }
+
+    
+    .newProfile__userBio__image__bg {
+        display: block !important;
+        position: absolute;
+        background: linear-gradient(to right,#13547a, #80d0c7);
+        height: 75px;
+        width: 100%;
+        left: 0;
+    }
+
+    .newProfile__userBio .MuiBadge-root {
+        margin-top: 2.2rem;
+        margin-bottom: 10px;
+    }
+
+}
+
 @media(max-width: 414px) {
+    .newProfile__userBio__info > h4 {
+        font-size: 1.05rem;
+    }
+
+    .newProfile__experience {
+        padding: 1.5rem;
+    }
+
     .newProfile__experience__bg > h3 {
         margin-top: 3.5rem;
+    }
+
+    .experiences__card > div > img {
+        width: 50px;
+        height: 50px;
+        margin-right: 1rem;
     }
 
     .newProfile__resume > div > h3 {
         margin-top: 5rem;
     }
 
+    .experiences__card > div > div {
+        width: 74%;
+    }
+
+    .experiences__card > div > div > h2 {
+        font-weight: 600;
+        font-size: 1.2rem;
+        color: #444;
+        max-width: 100%;
+    }
+
+    .experiences__card > div > div > h3, .experiences__card > div > div > h4,
+    .experiences__card > div > div > p {
+        font-weight: 500;
+        font-size: 1.1rem;
+    }
+
+    .experiences__card > div > div > h4 {
+        font-weight: 400;
+    }
+
     .newProfile__experience__bg > p, .newProfile__resume > div > p {
         font-size: .895rem;
+    }
+}
+
+@media(max-width: 375px) {
+    .experiences__card > div > div {
+        width: 71%;
+    }
+
+    .experiences__card > div > div > h3 {
+        font-size: .95rem;
+    }
+}
+
+@media(max-width: 360px) {
+    .experiences__card > div > div > h3 {
+        font-size: .9rem;
+    }
+}
+
+@media(max-width: 330px) {
+    .newProfile__userBio__info > h5 {
+        font-size: .9rem;
     }
 }
 

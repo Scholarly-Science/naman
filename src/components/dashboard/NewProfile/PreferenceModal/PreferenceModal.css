@@ -100,3 +100,29 @@
         border-radius: 0px;
     }
 }
+
+@media(max-width: 414px) {
+    .preference__modal__container {
+        padding: 1.5rem 0;
+    }   
+
+    .preference__modal__roles {
+        width: 95%;
+    }
+
+    .prefSearch > input {
+        width: 88.5%;
+    }
+}
+
+@media(max-width: 375px) {
+    .prefSearch > input {
+        width: 87.5%;
+    }
+}
+
+@media(max-width: 360px) {
+    .prefSearch > input {
+        width: 86.5%;
+    }
+}

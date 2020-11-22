@@ -132,6 +132,7 @@ function NewProfile() {
             <div className='newProfile__container'>
                 <section className='newProfile__left'>
                     <div className='newProfile__userBio'>
+                        <div className='newProfile__userBio__image__bg'></div>
                         <div>
                             <Badge
                                 overlap="circle"

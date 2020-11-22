@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import './NewDashboard.css';
 import { months } from '../NewProfile/NewProfileData';
 
-
 function NewDashboard() {
     const [dMonths, setDMonths] = useState([]);
     const [dates, setDates] = useState(datesArray1);
@@ -12,11 +11,7 @@ function NewDashboard() {
     }, [])
 
     const updateDate = (index) => {
-        const startMonth = dMonths.slice(index, dMonths.length);
-        const addMonths = dMonths.slice(0, index);
-        
-        const newMonthArray = [...startMonth, ...addMonths];
-        setDMonths(newMonthArray);
+        console.log(index)
     }
 
     const dateSelected = (date) => {

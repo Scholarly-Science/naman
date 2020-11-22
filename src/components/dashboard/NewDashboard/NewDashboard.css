@@ -48,7 +48,7 @@
     cursor: pointer;
 }
 
-.newDashboard__interview__months > p:first-child {
+.newDashboard__interview__months > p:nth-child(2) {
     color: #000;
     opacity: 1;
 }
